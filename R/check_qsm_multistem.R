@@ -11,6 +11,7 @@
 #' @param plot_parts QSM for each detected stem (column tree_part). Default to FALSE
 #' @param replace_qsm Should input QSM file be replaced. If FALSE _multistem.txt is added to file name. Default to FALSE
 #' @return The path to the corrected QSM file.
+#' @export
 #' @examples
 #' check_qsm_multistem("cyl_data*.txt", 1.5, 40.0, 0.035, 2.0, FALSE, FALSE, FALSE)
 ## ****************************************************************************

@@ -4,6 +4,7 @@
 #' @param input_cloud A 3D point cloud file, e.g. "tree1.xyz".
 #'     Assumes first three columns to be x y z without header. Futher columns are ignored.
 #' @return Return a PNG file
+#' @export
 #' @examples
 #' print_CPA("tree1.xyz")
 

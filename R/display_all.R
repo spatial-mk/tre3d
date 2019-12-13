@@ -20,6 +20,7 @@
 #' @param subsample_percent Numbers of points (in percent, min=5) after random subsampling. Default to 20 percent of original size.
 #' @param set_to_zero Should the trees all be set to a elevation of zero. Ignores actual elevation. Default to TRUE.
 #' @return Just plots stuff.
+#' @export
 #' @examples
 #' display_all(input_cloud="*.xyz", qsm="cyl_data.txt", cbh=0, alpha=1.0)
 ## ****************************************************************************

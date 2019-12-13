@@ -5,6 +5,7 @@
 #' @param orient Directional vector of the vector, e.g. a cylinder, axis (x1,y1,z1)
 #' @param length Length of the vector, e.g. cylinder length (in meter)
 #' @return The end point (p_end) of the vector in 3D (x,y,z)
+#' @export
 #' @examples
 #' vector_end(p_start = c(0,0,0), orient = c(1,1,1), length = 1)
 vector_end <- function(p_start=c(0,0,0), orient=c(1,1,1), length=1){

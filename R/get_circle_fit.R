@@ -9,7 +9,8 @@
 #'     To avoid collinearity a small random jitter is added to the points before alpha-shape computation.
 #' @param input_cloud A file or data.frame containing a tree point cloud with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.
 #' @param plot_fit Should the circle fit be plotted. Default to FALSE.
-#' @return A .txt files containing: CPA, CH, Height, GD, DBH, etc..
+#' @return A .txt files containing: CPA, CH, Height, GD, DBH, etc.
+#' @export
 #' @examples
 #' get_circle_fit(data.frame(x=runif(20),y=runif(20), z=runif(20)), plot=FALSE)
 ## ****************************************************************************

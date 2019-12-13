@@ -10,6 +10,7 @@
 #' @param alpha Alpha value for alpha-shape computation. Default 0.5
 #' @param plot Should the alpha shape be plotted. Default to FALSE.
 #' @return A data.frame containing: area, perimeter, cpa_cen_x, cpa_cen_y.
+#' @export
 #' @examples
 #' get_2d_alpha_shape(data.frame(x=runif(20),y=runif(20)), alpha=1.0)
 

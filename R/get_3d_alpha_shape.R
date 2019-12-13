@@ -10,6 +10,7 @@
 #' @param alpha Alpha value for alpha-shape computation. Default 0.5
 #' @param plot Should the 3d alpha shape be plotted. Default to FALSE.
 #' @return A data.frame containing: volume, surface area, vol_cen_x, vol_cen_y, vol_cen_z, alpha value and the alpha-shape object.
+#' @export
 #' @examples
 #' get_3d_alpha_shape(data.frame(x=runif(20),y=runif(20), z=runif(20)), alpha=1.0)
 ## ****************************************************************************

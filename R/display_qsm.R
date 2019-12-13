@@ -12,6 +12,7 @@
 #' @param circles Display circles at the end of the cylinder. Default to FALSE.
 #' @param transparent Makes the cylinder transparent. Default to TRUE with transparency of 0.3
 #' @return Does not return anything at the moment.
+#' @export
 #' @examples
 #' display_qsm("cyl_data*.txt")
 

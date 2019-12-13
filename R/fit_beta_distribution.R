@@ -5,6 +5,7 @@
 #' @param profile A 3D point cloud file, e.g. "tree1.xyz".
 #'     Assumes first three columns to be x y z without header. Futher columns are ignored.
 #' @return Beta distribution
+#' @export
 #' @examples
 #' fit_beta("tree1.xyz")
 

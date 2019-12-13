@@ -4,6 +4,7 @@
 #' @param x1 A value
 #' @param x2 Another value
 #' @return Difference between x1 and x2 in absolute (always positive) percent
+#' @export
 #' @examples
 #' diff_percent(10,12) # 18.18%
 diff_percent <- function(x1,x2){
