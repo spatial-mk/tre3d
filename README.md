@@ -11,5 +11,8 @@ Requirements:
 + Install LAStools under C: (https://rapidlasso.com/lastools/)
 + Install CloudCompare under C:/Program Files/ (https://www.danielgm.net/cc/)
 
+Installation:
 
+> install.packages("devtools")
+> devtools::install_github("spatial-mk/tre3d")
 
