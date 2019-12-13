@@ -14,5 +14,6 @@ Requirements:
 Installation:
 
 > install.packages("devtools")
+
 > devtools::install_github("spatial-mk/tre3d")
 
