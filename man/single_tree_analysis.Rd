@@ -22,7 +22,7 @@ single_tree_analysis(input_cloud = data.frame(x = runif(20), y =
 
 \item{plot_hulls}{Should the CPA and slice hull be plotted. Default to FALSE.}
 
-\item{overwrite_output}{Should outout files be overwritten?. Logical.}
+\item{overwrite_output}{Should outout files be overwritten?. Logical. Default TRUE.}
 }
 \value{
 A .txt files containing: CPA, CH, Height, GD, DBH, etc..
