@@ -13,7 +13,7 @@ get_circle_fit(input_cloud = data.frame(x = runif(20), y = runif(20), z =
 \item{plot_fit}{Should the circle fit be plotted. Default to FALSE.}
 }
 \value{
-A .txt files containing: CPA, CH, Height, GD, DBH, etc..
+A .txt files containing: CPA, CH, Height, GD, DBH, etc.
 }
 \description{
 computes the 2d alpha shape, 2d convex hull a 3D set of points as well as ground diameter and diameter at breast height\cr
