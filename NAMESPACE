@@ -3,5 +3,7 @@
 export(cbh_from_qsm)
 export(crown_metrics)
 export(cylinder3d)
+export(deg2rad)
+export(display_cbh)
 export(rad2deg)
 export(single_tree_analysis)
