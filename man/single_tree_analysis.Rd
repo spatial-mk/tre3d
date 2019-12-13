@@ -4,10 +4,15 @@
 \alias{single_tree_analysis}
 \title{Computes the 3d alpha shape, volume, surface area, and centroid of a 3D set of points}
 \usage{
-single_tree_analysis(input_cloud = data.frame(x = runif(20), y =
-  runif(20), z = runif(20)), vox = FALSE, voxel_size = 0.03,
-  alpha_value = 1, plot = FALSE, plot_hulls = FALSE,
-  overwrite_output = TRUE)
+single_tree_analysis(
+  input_cloud = data.frame(x = runif(20), y = runif(20), z = runif(20)),
+  vox = FALSE,
+  voxel_size = 0.03,
+  alpha_value = 1,
+  plot = FALSE,
+  plot_hulls = FALSE,
+  overwrite_output = TRUE
+)
 }
 \arguments{
 \item{input_cloud}{A file or data.frame containing a tree point cloud with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.}

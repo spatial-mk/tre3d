@@ -4,9 +4,18 @@
 \alias{crown_metrics}
 \title{Crown metrics.}
 \usage{
-crown_metrics(input_cloud = "*.xyz", slice_thickness = 0.3, cbh = 0,
-  vox = TRUE, voxel_size = 0.03, use_concave_hull = FALSE,
-  alpha_value = 1, plot_hulls = FALSE, pos_x = NA, pos_y = NA)
+crown_metrics(
+  input_cloud = "*.xyz",
+  slice_thickness = 0.3,
+  cbh = 0,
+  vox = TRUE,
+  voxel_size = 0.03,
+  use_concave_hull = FALSE,
+  alpha_value = 1,
+  plot_hulls = FALSE,
+  pos_x = NA,
+  pos_y = NA
+)
 }
 \arguments{
 \item{input_cloud}{A 3D point cloud file, e.g. "tree1.xyz".

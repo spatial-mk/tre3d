@@ -2,6 +2,8 @@
 #'
 #' A point cloud of a single tree
 #'
+#' @docType data
+#'
 #' @format A data frame with n rows and 3 variables:
 #' \describe{
 #'   \item{x}{x coordinate}

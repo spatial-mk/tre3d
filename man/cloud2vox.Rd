@@ -4,8 +4,7 @@
 \alias{cloud2vox}
 \title{Voxel grid reduction of a point cloud.}
 \usage{
-cloud2vox(input_cloud = "*.xyz", voxel_size = 0.03,
-  set_z_to_zero = FALSE)
+cloud2vox(input_cloud = "*.xyz", voxel_size = 0.03, set_z_to_zero = FALSE)
 }
 \arguments{
 \item{input_cloud}{A file or data.frame containing a tree point cloud with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.}
