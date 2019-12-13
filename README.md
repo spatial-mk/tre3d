@@ -17,3 +17,8 @@ Installation:
 
 > devtools::install_github("spatial-mk/tre3d")
 
+Test:
+
+#> df = tre3d::tree1
+
+#> tre3d::get_2d_alpha_shape(input_cloud = df, plot = T)
