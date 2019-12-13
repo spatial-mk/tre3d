@@ -41,6 +41,7 @@
 #' @param pos_x X coordinate of tree position. Default NA
 #' @param pos_y Y coordinate of tree position. Default NA
 #' @return A data.frame with tree parameters
+#' @export
 #' @examples
 #' crown_metrics("tree1.xyz", 0.25)
 #' crown_metrics("tree1.xyz", 0.3, CBHfromQSM("tree1_qsm.txt"), 0.025)
