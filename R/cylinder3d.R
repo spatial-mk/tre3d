@@ -51,6 +51,7 @@
 #' @param circles Display circles at the end of the cylinder. Default to FALSE.
 #' @param transparent Makes the cylinder transparent. Default to TRUE with transparency of 0.3
 #' @return Does not return anything at the moment.
+#' @export
 #' @examples
 #' cylinder3d(p_start = c(0,0,0), orient = c(1,1,1), radius = 0.25, length = 1)
 cylinder3d <- function(p_start = c(0,0,0), # Start point of the cylinder

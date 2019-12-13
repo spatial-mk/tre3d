@@ -15,6 +15,7 @@
 #' @param plot Should the 2d alpha shape be plotted. Default to FALSE.
 #' @param plot_hulls Should the CPA and slice hull be plotted. Default to FALSE.
 #' @return A .txt files containing: CPA, CH, Height, GD, DBH, etc.
+#' @export
 #' @examples
 #' get_3d_alpha_shape(data.frame(x=runif(20),y=runif(20), z=runif(20)), alpha=1.0)
 ## ****************************************************************************

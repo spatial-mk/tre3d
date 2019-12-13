@@ -14,6 +14,7 @@
 #' @param max_angle_deg Maximum allowed branch angle (in degree) from vertical tree axis. Default 60.0
 #' @param min_branch_length_m Minimum length of a first order branch considered to be first living trunk. Default 2.0
 #' @return CBH in meter. Note that CBH computation sets lowest tree point in z axis to 0.
+#' @export
 #' @examples
 #' cbh_from_qsm("cyl_data_*.txt", 0.07, 60.0, 2.0)
 
