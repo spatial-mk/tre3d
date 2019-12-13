@@ -7,6 +7,7 @@
 #' @param vox Should the input point cloud be displayed as voxel grid for faster display. Default to TRUE.
 #' @param voxel_size Size (in meters) of the voxels when vox==TRUE. Default 0.03
 #' @return NULL. Function currently does not return anything.
+#' @export
 #' @examples
 #' display_cbh("tree1.xyz", 3.4)
 display_cbh <- function(input_cloud="*.xyz", cbh=0, vox=TRUE, voxel_size=0.03){

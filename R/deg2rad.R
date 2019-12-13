@@ -3,6 +3,7 @@
 #' @description Converts an angle in degree (0-360) to radian (0-1)
 #' @param angle A positive angle in degree (0-360)
 #' @return The angle in radian
+#' @export
 #' @examples
 #' deg2rad(45.0) # 0.7853982
 deg2rad <- function(angle=0){
