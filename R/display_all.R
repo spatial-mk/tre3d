@@ -16,9 +16,9 @@
 #' @param suppress_points Should 3d point be supressed from plotting. Default to FALSE.
 #' @param n_seg Number of segment used for drawing cylinders. Default to 10.
 #' @param random_subsampling Should the input point cloud be subsampled randomly. Default to TRUE.
-#' @param subsample_percent Numbers of points (in %, min=5) after random subsampling. Default to 20% of original size.
-#' @param set_to_zero Should the trees all be set to a elevation of zero. Ignores actual elevation. Default to TRUE.
 #' @param mult Do you want to plot multiple trees to one device. Default to FALSE.
+#' @param subsample_percent Numbers of points (in percent, min=5) after random subsampling. Default to 20 percent of original size.
+#' @param set_to_zero Should the trees all be set to a elevation of zero. Ignores actual elevation. Default to TRUE.
 #' @return Just plots stuff.
 #' @examples
 #' display_all(input_cloud="*.xyz", qsm="cyl_data.txt", cbh=0, alpha=1.0)

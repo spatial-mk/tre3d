@@ -29,7 +29,7 @@ display_all(input_cloud = "*.xyz", random_subsampling = TRUE,
 
 \item{n_seg}{Number of segment used for drawing cylinders. Default to 10.}
 
-\item{subsample_percent}{Numbers of points (in %, min=5) after random subsampling. Default to 20% of original size.}
+\item{subsample_percent}{Numbers of points (in percent, min=5) after random subsampling. Default to 20 percent of original size.}
 
 \item{set_to_zero}{Should the trees all be set to a elevation of zero. Ignores actual elevation. Default to TRUE.}
 
