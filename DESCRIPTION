@@ -1,0 +1,31 @@
+Package: tre3d
+Type: Package
+Title: Point cloud based analysis of trees
+Version: 0.1.0
+Author: Matthias Kunz, last updated: 28.04.2019
+Maintainer: Matthias Kunz <matthias.kunz@tu-dresden.de>
+Description: Point cloud (three-dimenstional) based analysis of trees
+    Use four spaces when indenting paragraphs within the Description.
+License: Proprietary. Do not distribute outside of Working Group (https://tu-dresden.de/bu/umwelt/forst/oekologie/landes).
+    Use on request only.
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    readr,
+    VoxR,
+  	 alphahull,
+  	 alphashape3d,
+  	 spatialEco,
+  	 sf,
+  	 doBy,
+  	 rgdal,
+  	 igraph,
+  	 rgl,
+  	 ggplot2,
+  	 reshape2,
+	 circular
+Suggests:
+    dplyr,
+    VoxR
+RoxygenNote: 6.1.1.9000
