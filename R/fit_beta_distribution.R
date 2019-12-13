@@ -1,3 +1,13 @@
+
+#' Fit beta distribution.
+#' @author Matthias Kunz, last updated: 27.04.2019
+#' @description Print/Display tree crown projection area.
+#' @param profile A 3D point cloud file, e.g. "tree1.xyz".
+#'     Assumes first three columns to be x y z without header. Futher columns are ignored.
+#' @return Beta distribution
+#' @examples
+#' fit_beta("tree1.xyz")
+
 ## An R-Script that fits a beta distribution with optimized parameters a and b
 ## Matthias Kunz, 28.05.2019
 ## See:
@@ -8,10 +18,10 @@
 
 ## ----------------------------------------------------------------------------
 ## Load R packages and libraries
-library(rgl)
-library(VoxR)
-library(MASS) # fitdistr
-source("D:/Dropbox/TUD_KUNZ/tre3d/Code/tre3d/R/get_2d_chull.R")
+#library(rgl)
+#library(VoxR)
+#library(MASS) # fitdistr
+#source("D:/Dropbox/TUD_KUNZ/tre3d/Code/tre3d/R/get_2d_chull.R")
 
 ## ----------------------------------------------------------------------------
 ## Sample data

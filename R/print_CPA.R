@@ -1,24 +1,11 @@
-
-##*****************************************************************************
-##  visualise_tree_analysis.r
-##
-##	Author:	      Matthias Kunz
-##  Date:		      30.05.2018
-##	R packages:	  geometry, rgl, alphashape3d, ggplot2
-##  Note:  	      Visualizes tree analysis files (tree_analysis.txt)
-##	Use:          source("C:/Users/Kunz/Desktop/tree_check.R")
-##*****************************************************************************
-
-##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-## Load R packages required for analysis and plotting
-#library(ggplot2)
-#library(gridExtra)
-#library(reshape2)
-#library(data.table)
-#library(RColorBrewer)
-#library(plotrix)
-#library(grid)
-#library(VoxR)
+#' Display CPA.
+#' @author Matthias Kunz, last updated: 27.04.2019
+#' @description Print/Display tree crown projection area.
+#' @param input_cloud A 3D point cloud file, e.g. "tree1.xyz".
+#'     Assumes first three columns to be x y z without header. Futher columns are ignored.
+#' @return Return a PNG file
+#' @examples
+#' print_CPA("tree1.xyz")
 
 print_CPA <- function(input_cloud="*.xyz"){
   i = input_cloud
