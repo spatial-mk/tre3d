@@ -4,6 +4,8 @@
 #'
 #' @docType data
 #'
+#' @usage data(grav)
+#'
 #' @format A data frame with n rows and 3 variables:
 #' \describe{
 #'   \item{x}{x coordinate}

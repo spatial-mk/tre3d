@@ -11,7 +11,7 @@
   \item{z}{z coordinate}
 }}
 \usage{
-tree1
+data(grav)
 }
 \description{
 A point cloud of a single tree
