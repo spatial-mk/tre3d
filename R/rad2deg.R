@@ -7,8 +7,6 @@
 #' @examples
 #' rad2deg(0.7853982) # 45.0
 rad2deg <- function(angle=0){
-
   angle = angle * 180 / pi
   return(angle)
-
 } # END-OF-FUNCTION
