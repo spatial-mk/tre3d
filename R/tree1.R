@@ -1,6 +1,6 @@
 #' tree1
 #'
-#' A point cloud of a single tree
+#' A point cloud of a single pinguin
 #'
 #' @docType data
 #'
@@ -12,4 +12,5 @@
 #'   \item{y}{y coordinate}
 #'   \item{z}{z coordinate}
 #' }
-"tree1"
+#' @name tree1
+'tree1'

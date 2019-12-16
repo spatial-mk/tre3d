@@ -32,6 +32,7 @@
 #' @param voxel_size Size (in meters) of the voxels when vox==TRUE. Default 0.03
 #' @param plotting Should strata be plotted. Default to FALSE
 #' @return The crown complementarity value (CC_ij)
+#' @export
 #' @examples
 #' crown_complementarity(tree_i, tree_j, strata_height=0.3, plotting=FALSE)
 

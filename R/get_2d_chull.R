@@ -9,6 +9,7 @@
 #' @param input_cloud A file or data.frame containing x and y points. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.
 #' @param plot Should the convex hull be plotted. Default to FALSE.
 #' @return A data.frame containing: area, perimeter, cpa_cen_x, cpa_cen_y.
+#' @export
 #' @examples
 #' get_2d_chull(data.frame(x=runif(20),y=runif(20)))
 

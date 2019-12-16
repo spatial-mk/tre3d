@@ -14,6 +14,6 @@
 data(grav)
 }
 \description{
-A point cloud of a single tree
+A point cloud of a single pinguin
 }
 \keyword{datasets}

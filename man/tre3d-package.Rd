@@ -14,6 +14,7 @@ cbh_from_qsm\cr
 crown_metrics\cr
 check_qsm_multistem\cr
 display_all\cr
+display_qsm\cr
 get_2d_alpha_shape\cr
 get_2d_chull\cr
 get_3d_alpha_shape\cr

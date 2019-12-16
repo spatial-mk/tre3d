@@ -70,7 +70,7 @@
 
 ## ----------------------------------------------------------------------------
 ## Function that return a and b from beta distribution
-fit_beta <- function(profile=c(1,1.1,1)){
+fit_beta_distribution <- function(profile=c(1,1.1,1)){
   plot(dist)
   lines(dist)
   beta = data.frame(a=1, b=1)
