@@ -11,7 +11,7 @@
   \item{z}{z coordinate}
 }}
 \usage{
-data(grav)
+data(tree1)
 }
 \description{
 A point cloud of a single pinguin

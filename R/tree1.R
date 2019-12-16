@@ -4,7 +4,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(grav)
+#' @usage data(tree1)
 #'
 #' @format A data frame with n rows and 3 variables:
 #' \describe{
