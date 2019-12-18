@@ -17,7 +17,11 @@
 #' single_tree_analysis\cr
 #' crown_complementarity\cr
 #' cbh_from_qsm\cr
-#' cloud2vox
+#' cloud2vox\cr
+#' MeanFrac\cr
+#' ENL\cr
+#' align_slope_plane_fit\cr
+#' SSCI\cr
 #'
 #' @docType package
 #' @name tre3d-package

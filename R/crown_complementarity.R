@@ -222,7 +222,7 @@ crown_complementarity <- function(tree_i=NA, tree_j=NA , strata_height=0.3, vox=
                stat="identity", width = 0.3, color="black", alpha = 0.35) +
       ggplot2::geom_bar(data=strata_tree_j, ggplot2::aes(x=strata+(strata_height/2), y=value, fill="green"),
                stat="identity", width = 0.3, color="black", alpha = 0.35) +
-      ggplot2::xlab("Height [m]") + ggplot2::ylab("Strata volume [m?]") +
+      ggplot2::xlab("Height [m]") + ggplot2::ylab("Strata volume [m^3]") +
       ggplot2::xlim(0, round(max(strata_df_melt$strata),0)+1) +
       ggplot2::ggtitle("Volume [m^3] per strata (strata height 30 cm)") +
       ggplot2::scale_fill_manual(name="", values=c("red","green"), breaks=c("red", "green"), labels=c("Tree i", "Tree j")) +
