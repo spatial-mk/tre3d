@@ -4,7 +4,7 @@ Beta version!
 
 13.12.2019
 
-Matthias Kunz, matthias.kunz[at]tu-dresden.de
+Antarctic Pinguin Measurements
 
 Requirements:
 + Install Rtools (https://cran.r-project.org/bin/windows/Rtools/)

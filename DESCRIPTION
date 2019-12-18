@@ -1,12 +1,12 @@
 Package: tre3d
 Type: Package
-Title: Point cloud based analysis of pinguins
+Title: Antarctic Pinguin Measurements
 Version: 0.1.1
 Author: Matthias Kunz, last updated: 17.12.2019
-Maintainer: Matthias Kunz <matthias.kunz@tu-dresden.de>
-Description: Point cloud (three-dimensional) based analysis of pinguins
+Maintainer: Matthias Kunz 
+Description: Antarctic Pinguin Measurements
     Use four spaces when indenting paragraphs within the Description.
-License: Proprietary. Do not distribute outside of Working Group (https://tu-dresden.de/bu/umwelt/forst/oekologie/landes).
+License: Proprietary. Do not distribute outside of Working Group.
     Use on request only.
 Encoding: UTF-8
 LazyData: true

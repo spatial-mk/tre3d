@@ -180,6 +180,6 @@ single_tree_analysis <- function(input_cloud=data.frame(x=runif(20),y=runif(20),
 
   ## Print the result as a PNG to check
   cat(crayon::bold("\nAnalysis done. Print PNG\n"))
-  print_CPA(input_cloud)
+  tre3d::print_CPA(input_cloud)
 
 } ## END-OF-FUNCTION
