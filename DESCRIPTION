@@ -11,6 +11,6 @@ License: Proprietary. Do not distribute outside of TU Dresden working group.
     Use on request only.
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.1), VoxR, foreach, dplyr, ggplot2, readr, sp
-Suggests: circular, ineq
+Depends: R (>= 3.5.1), VoxR, foreach, parallel, dplyr, ggplot2, readr, sp, circular, ineq, rgl, reshape2, alphashape3d
+Suggests: tools, crayon
 RoxygenNote: 7.0.2
