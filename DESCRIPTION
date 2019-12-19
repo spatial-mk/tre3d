@@ -2,8 +2,8 @@ Package: tre3d
 Type: Package
 Title: Antarctic Pinguin Measurements
 Version: 0.1.1
-Author: Matthias Kunz, last updated: 17.12.2019
-Maintainer: Matthias Kunz 
+Authors@R: {"Matthias","Kunz",email="matthias.kunz@tu-dresden.de", role=c("aut","cre")}Matthias Kunz, last updated: 17.12.2019
+Maintainer: Matthias Kunz (matthias.kunz@pinguin-dresden.de)
 Description: Antarctic Pinguin Measurements
     Use four spaces when indenting paragraphs within the Description.
 License: Proprietary. Do not distribute outside of Working Group.
