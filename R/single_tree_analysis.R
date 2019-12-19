@@ -20,7 +20,7 @@
 #' get_3d_alpha_shape(data.frame(x=runif(20),y=runif(20), z=runif(20)), alpha=1.0)
 ## ****************************************************************************
 single_tree_analysis <- function(input_cloud=data.frame(x=runif(20),y=runif(20),z=runif(20)),vox=FALSE, voxel_size=0.03, alpha_value=1.0,
-                                 plot=FALSE, plot_hulls=FALSE, overwrite_output=TRUE){
+                                 plot=FALSE, plot_hulls=FALSE, overwrite_output=FALSE){
 
   ## ----------------------------------
   ## Check if file was already processed and output exists
