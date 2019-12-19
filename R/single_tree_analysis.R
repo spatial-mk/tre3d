@@ -26,7 +26,8 @@ single_tree_analysis <- function(input_cloud=data.frame(x=runif(20),y=runif(20),
   ## Check if file was already processed and output exists
   file_id <- tools::file_path_sans_ext(basename(input_cloud))
   if (overwrite_output==FALSE & file.exists(paste0(dirname(input_cloud),"/analysis/",file_id,"_analysis.txt")) == TRUE){
-    stop("\nOutput already exists. If you want to overwrite use overwrite_output==TRUE")
+    break("\nOutput already exists. If you want to overwrite use overwrite_output==TRUE")
+    return(0)
   }
 
   ## ----------------------------------
