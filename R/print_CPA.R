@@ -1,5 +1,5 @@
 #' Display CPA.
-#' @author Matthias Kunz, last updated: 27.04.2019
+#' @author Matthias Kunz, last updated: 19.12.2019
 #' @description Print/Display tree crown projection area.
 #' @param input_cloud A 3D point cloud file, e.g. "tree1.xyz".
 #'     Assumes first three columns to be x y z without header. Futher columns are ignored.
