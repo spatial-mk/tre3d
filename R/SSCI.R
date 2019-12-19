@@ -130,7 +130,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       temp <- suppressMessages(readr::read_delim(paste0(fls_file, "_CROPPED.xyz"), delim = " ", col_names = F))
 
       ## Apply the elevation offset
-      cat(bold(blue("\n>>> Adjust scanner elevation of",round(scanner_elevation,2),"m to 0 m\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Adjust scanner elevation of",round(scanner_elevation,2),"m to 0 m\n")))
       temp$X3 <- temp$X3 - scanner_elevation
 
       ## Remove extreme points 60 m above lowest point, this sometimes happens
@@ -172,7 +172,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   ## Substep: Extract terrain points using LAStools
   if (extension=="fls" | extension=="ptx"){
-    cat(bold(blue("\n>>> Convert xyz to las\n")))
+    cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
     system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                      paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                      " -o ", paste0(getwd(),"/",fls_file, ".las")))
@@ -181,7 +181,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
     ## Apply CROP and SOR filter xyz file if CROP_SOR_xyz == T
     if (CROP_SOR_xyz == T){
       ## CROP ---------------
-      cat(bold(blue("\n>>> Crop xyz\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Crop xyz\n")))
       if (crop_circular==F){
         system("cmd.exe", input = paste0(cc, " -SILENT",
                                          " -O ", paste0(input_fls),
@@ -208,7 +208,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       unlink(paste0(getwd(),"/",fls_file, "_log_crop.txt"))
 
       ## SOR filter ---------
-      cat(bold(blue("\n>>> Apply SOR filter\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Apply SOR filter\n")))
       system("cmd.exe", input = paste0(cc, " -SILENT" ,
                                        " -O ",  paste0(getwd(),"/",fls_file, "_CROPPED.xyz"),
                                        " -AUTO_SAVE ", " OFF ", " -NO_TIMESTAMP",
@@ -226,14 +226,14 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       unlink(paste0(getwd(),"/",fls_file, "_log_sor.txt"))
 
       ## CONVERT ------------
-      cat(bold(blue("\n>>> Convert xyz to las\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                        " -o ", paste0(getwd(),"/",fls_file, ".las")))
 
 
     } else {
-      cat(bold(blue("\n>>> Convert xyz to las\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        input_fls, " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                        " -o ", paste0(getwd(),"/",fls_file, ".las")))
@@ -250,7 +250,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
                                    " -quiet -all_returns -not_airborne -v -step 1"))
 
   ## Extract the ground points
-  cat(bold(blue("\n>>> Extract terrain/ground points\n")))
+  cat(crayon::bold(crayon::blue("\n>>> Extract terrain/ground points\n")))
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\lasground.exe ","-i ",
                                    paste0(getwd(),"/",fls_file, "_classification.las"),
                                    " -keep_xy -5 -5 5 5", " -quiet" ," -keep_class 2 -oparse xyz",
