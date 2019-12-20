@@ -11,7 +11,7 @@ single_tree_analysis(
   alpha_value = 1,
   plot = FALSE,
   plot_hulls = FALSE,
-  overwrite_output = TRUE
+  overwrite_output = FALSE
 )
 }
 \arguments{

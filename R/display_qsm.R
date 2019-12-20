@@ -40,7 +40,7 @@ display_qsm <- function(qsm="cyl_data*.txt", n_seg=12, axis=FALSE, cylinders=TRU
   rgl::rgl.bg(color = "white") # Setup the background color
   rgl::par3d(windowRect=c(50,50,1200,800), mouseMode = "trackball") # Change size of rgl window
   for (i in 1:nrow(df)){
-    cylinder3d(p_start = c(df[i,c("x")], df[i,c("y")], df[i,c("z")]), # Start point of the cylinder
+    tre3d::cylinder3d(p_start = c(df[i,c("x")], df[i,c("y")], df[i,c("z")]), # Start point of the cylinder
                orient = c(df[i,c("xdir")], df[i,c("ydir")], df[i,c("zdir")]), # Directional vector of the cylinder axis
                radius = df[i,c("r")],#/1000,      # Radius of the cylinder
                length = df[i,c("l")],#/1000,         # Length of the cylinder

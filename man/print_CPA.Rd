@@ -20,5 +20,5 @@ Print/Display tree crown projection area.
 print_CPA("tree1.xyz")
 }
 \author{
-Matthias Kunz, last updated: 27.04.2019
+Matthias Kunz, last updated: 19.12.2019
 }

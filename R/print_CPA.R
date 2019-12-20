@@ -11,7 +11,7 @@
 print_CPA <- function(input_cloud="*.xyz"){
   i = input_cloud
   wd <- dirname(i) #getwd()
-  tree <- tools::file_path_sans_ext(i) #substr(filenames[i],1,6)
+  tree <- tools::file_path_sans_ext(basename(i)) #substr(filenames[i],1,6)
   tree_cloud <- paste(wd, "/",tree,".xyz",sep="")
   analysis <- paste(wd, "/analysis/",tree,"_analysis.txt",sep="")
   gd_cloud <- paste(wd, "/analysis/",tree,"_gd_cloud.xyz",sep="")
@@ -19,6 +19,10 @@ print_CPA <- function(input_cloud="*.xyz"){
   cpa <- paste(wd, "/analysis/",tree,"_cpa_as.txt",sep="")
   cpa_cen <- paste(wd, "/analysis/",tree,"_analysis.txt",sep="")
   output <- paste(wd, "/analysis/",tree,"_CHECK.png",sep="")
+
+  print(wd)
+  print(analysis)
+
   if(file.exists(output)){
     file.remove(output)
     cat("\nFile exists (delete). Plot new file: ", basename(output))
@@ -36,6 +40,7 @@ print_CPA <- function(input_cloud="*.xyz"){
   ## Read in data and set variables
 
   ## Read in polygon points from alpha shape in extra file
+  cat("\nRead in analysis data.\n")
   cpa_as_poly <- read.table(cpa ,sep = " ", skip=1, col.names = c("x","y","id_tree","tudtag"))
   centroid_as <- read.table(cpa_cen, sep = " ", skip=7, nrows=1, col.names = c("name","CPA_cen_X","CPA_cen_Y","id_tree","tudtag"))
   tree_pos <- read.table(analysis , sep = " ", nrows=1, col.names = c("name","X_TLS","Y_TLS","ALTITUDE_TLS","id_plot","id_tree","tudtag"))
@@ -67,6 +72,7 @@ print_CPA <- function(input_cloud="*.xyz"){
 
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Create plot
+  cat("\nCreate plots\n")
 
   ## Reduce tree cloud to 2.5 cm for faster plotting
   tree_cloud_xyz <- VoxR::vox(tree_cloud_xyz, 0.01)[,1:3]
@@ -160,10 +166,9 @@ print_CPA <- function(input_cloud="*.xyz"){
 
   ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   ## Plot to file with specific resolution
+  gridExtra::grid.arrange(p, p3, p4, p2, p5, ncol=5)
   png(output, width=4000, height=1500, res=200, type="cairo")
-  #grid.arrange(p2, p5, p3, p4, p, ncol=2, nrow=3)
   gridExtra::grid.arrange(p, p3, p4, p2, p5, ncol=5)
   dev.off()
-  #grid.arrange(p2, p5, p3, p4, p, ncol=2, nrow=3)
-  gridExtra::grid.arrange(p, p3, p4, p2, p5, ncol=5)
+
 }
