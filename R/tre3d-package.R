@@ -22,6 +22,7 @@
 #' ENL\cr
 #' align_slope_plane_fit\cr
 #' SSCI\cr
+#' print_CPA\cr
 #'
 #' @docType package
 #' @name tre3d-package

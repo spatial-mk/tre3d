@@ -26,6 +26,7 @@ MeanFrac\cr
 ENL\cr
 align_slope_plane_fit\cr
 SSCI\cr
+print_CPA\cr
 }
 
 \author{
