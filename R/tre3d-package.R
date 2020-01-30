@@ -23,6 +23,7 @@
 #' align_slope_plane_fit\cr
 #' SSCI\cr
 #' print_CPA\cr
+#' vertical_distribution\cr
 #'
 #' @docType package
 #' @name tre3d-package
