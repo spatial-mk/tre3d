@@ -2,7 +2,7 @@ Package: tre3d
 Type: Package
 Title: Antarctic Pinguin Measurements
 Version: 0.1.1
-Date: 18.12.2019
+Date: 30.01.2020
 Authors@R: c(person("Matthias","Kunz", role=c("aut","cre"), email="matthias.kunz@tu-dresden.de"))
 Maintainer: Matthias Kunz <matthias.kunz@pinguin-dresden.de>
 Description: Antarctic Pinguin Measurements
@@ -11,6 +11,6 @@ License: Proprietary. Do not distribute outside of TU Dresden working group.
     Use on request only.
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.1), VoxR, foreach, parallel, dplyr, ggplot2, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon
+Imports: VoxR, foreach, parallel, dplyr, ggplot2, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon
 Suggests: tools
 RoxygenNote: 7.0.2

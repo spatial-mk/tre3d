@@ -3,7 +3,7 @@
 #' The tre3d package provides some cool functions:
 #' cbh_from_qsm, crown_metrics and pointcloud2voxelgrid.
 #'
-#' @author Matthias Kunz, matthias.kunz[at]tu-dresden.de, last updated: 13.12.2019
+#' @author Matthias Kunz, matthias.kunz[at]tu-dresden.de, last updated: 30.01.2020
 #'
 #' @section tre3d functions:
 #' cbh_from_qsm\cr
