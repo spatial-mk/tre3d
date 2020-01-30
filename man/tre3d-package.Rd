@@ -29,5 +29,5 @@ SSCI\cr
 }
 
 \author{
-Matthias Kunz, matthias.kunz[at]tu-dresden.de, last updated: 13.12.2019
+Matthias Kunz, matthias.kunz[at]tu-dresden.de, last updated: 30.01.2020
 }
