@@ -19,7 +19,7 @@
 ## Script returns a data frame with tree name and the computed variables
 ## All variables are in meter or sqm or qbm
 ##
-## Script requires the folling R-packages: dplyr, VoxR, ineq
+## Script requires the folling R-packages: dplyr, VoxR, ineq, crayon
 ##
 ## Author: Matthias Kunz, 31.01.2020
 ## ****************************************************************************
