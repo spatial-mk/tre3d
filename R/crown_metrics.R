@@ -21,7 +21,7 @@
 ##
 ## Script requires the folling R-packages: dplyr, VoxR, ineq
 ##
-## Author: Matthias Kunz, 04.04.2019
+## Author: Matthias Kunz, 31.01.2020
 ## ****************************************************************************
 
 #' Crown metrics.
@@ -103,7 +103,7 @@ crown_metrics <- function(input_cloud="*.xyz",
   ## Clip to crown (points above CBH) and set lowest crown z to zero
   crown <- dplyr::filter(tree, z > cbh)
   crown$z <- crown$z - min(crown$z)
-  cat("\n",nrow(crown),"points in crown\n")
+  cat(crayon::blue("\n",nrow(crown),"points in crown\n"))
 
   ## ----------------------------------
   ## Compute crown projection area and crown displacement
