@@ -178,6 +178,12 @@ crown_metrics <- function(input_cloud="*.xyz",
   ## Note: Adds small random noise so as3d is computed
   cat("75% -- ")
   crown_as <- crown + rnorm(nrow(crown), mean=0.001, sd = 0.0002)
+
+  ## Center crown points to 0,0,0 in case coordinates are too large, so that alphashape3d works
+  crown_as[,1] <- crown_as[,1] - min(crown_as[,1])
+  crown_as[,2] <- crown_as[,2] - min(crown_as[,2])
+  crown_as[,3] <- crown_as[,3] - min(crown_as[,3])
+
   ## Check if enough crown points
   if (nrow(unique(crown_as))>5){
     as3d <- alphashape3d::ashape3d(as.matrix(crown_as[,1:3]), alpha=alpha_value, pert=T)
