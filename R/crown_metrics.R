@@ -103,7 +103,7 @@ crown_metrics <- function(input_cloud="*.xyz",
   ## Clip to crown (points above CBH) and set lowest crown z to zero
   crown <- dplyr::filter(tree, z > cbh)
   crown$z <- crown$z - min(crown$z)
-  cat("\n",nrow(crown),"points in crown")
+  cat("\n",nrow(crown),"points in crown\n")
 
   ## ----------------------------------
   ## Compute crown projection area and crown displacement
