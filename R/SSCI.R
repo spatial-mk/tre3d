@@ -11,6 +11,7 @@
 #' @param slice_thickness Thickness (in meter) of vertical layers for ENL computation. Default 0.5 m.
 #' @param angular_resolution Angular resolution of the scan, i.e. 360/number of points. Default 360/2560.
 #' @param CROP_SOR_XYZ Logical. Should a statistical outlier removal filter be applied and point cloud be cropped. Default FALSE.
+#' @param crop_square_length Half edge length (in meter) of squared crop along xy axis around scan center. Default +-10.
 #' @param crop_circular Logical. Should points be clipped circular around the (0,0,0) position. Default FALSE.
 #' @param crop_circular_radius Clip radius (in meter) if crop_circular=TRUE
 #' @param save_steps Logical. Should aligned point clouds and filter clouds be saved. Default TRUE.
@@ -37,7 +38,8 @@
 ## Function that converts and computes SSCI from .xyz/.ptx/.fls files
 SSCI <- function(input_fls="*.fls", align_to_terrain=T,
                                      voxel_size=0.1, slice_thickness=0.5,
-                                     angular_resolution=360/2560,CROP_SOR_xyz=F,crop_circular=F,crop_circular_radius=10,
+                                     angular_resolution=360/2560,CROP_SOR_xyz=F,crop_square_length=10,
+                                     crop_circular=F,crop_circular_radius=10,
                                      save_steps=T,
                                      plotting=F){
 
@@ -90,7 +92,8 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
         system("cmd.exe", input = paste0(cc, " -SILENT",
                                          " -O ", paste0(input_fls),
                                          " -AUTO_SAVE OFF", " -NO_TIMESTAMP",
-                                         " -CROP -10:-10:-1000:10:10:1000",
+                                         " -CROP ",-crop_square_length,":",-crop_square_length,":-1000:",crop_square_length,":",crop_square_length,":1000",
+                                         #" -CROP -10:-10:-1000:10:10:1000",
                                          " -C_EXPORT_FMT",  " ASC", " -PREC 6", " -EXT", " xyz", " -SAVE_CLOUDS",
                                          " -LOG_FILE ", paste0(getwd(),"/",fls_file, "_log_crop.txt")))
       } else {
@@ -187,7 +190,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
         system("cmd.exe", input = paste0(cc, " -SILENT",
                                          " -O ", paste0(input_fls),
                                          " -AUTO_SAVE OFF", " -NO_TIMESTAMP",
-                                         " -CROP -10:-10:-1000:10:10:1000",
+                                         " -CROP ",-crop_square_length,":",-crop_square_length,":-1000:",crop_square_length,":",crop_square_length,":1000",
                                          " -C_EXPORT_FMT",  " ASC", " -PREC 6", " -EXT", " xyz", " -SAVE_CLOUDS",
                                          " -LOG_FILE ", paste0(getwd(),"/",fls_file, "_log_crop.txt")))
       } else {

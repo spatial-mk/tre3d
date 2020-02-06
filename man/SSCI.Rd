@@ -11,6 +11,7 @@ SSCI(
   slice_thickness = 0.5,
   angular_resolution = 360/2560,
   CROP_SOR_xyz = F,
+  crop_square_length = 10,
   crop_circular = F,
   crop_circular_radius = 10,
   save_steps = T,
@@ -27,6 +28,8 @@ SSCI(
 \item{slice_thickness}{Thickness (in meter) of vertical layers for ENL computation. Default 0.5 m.}
 
 \item{angular_resolution}{Angular resolution of the scan, i.e. 360/number of points. Default 360/2560.}
+
+\item{crop_square_length}{Half edge length (in meter) of squared crop along xy axis around scan center. Default +-10.}
 
 \item{crop_circular}{Logical. Should points be clipped circular around the (0,0,0) position. Default FALSE.}
 
