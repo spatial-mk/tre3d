@@ -11,7 +11,8 @@
 #' @param slice_thickness Thickness (in meter) of vertical layers for ENL computation. Default 0.5 m.
 #' @param angular_resolution Angular resolution of the scan, i.e. 360/number of points. Default 360/2560.
 #' @param CROP_SOR_XYZ Logical. Should a statistical outlier removal filter be applied and point cloud be cropped. Default FALSE.
-#' @param crop_cirucal Logical. Should points be clipped circular around the (0,0,0) position. Default FALSE.
+#' @param crop_circular Logical. Should points be clipped circular around the (0,0,0) position. Default FALSE.
+#' @param crop_circular_radius Clip radius (in meter) if crop_circular=TRUE
 #' @param save_steps Logical. Should aligned point clouds and filter clouds be saved. Default TRUE.
 #' @param plotting Logical. Should the MeanFrac polygons be plotted. Note: This may takes a long time. Default FALSE.
 #' @return List with SSCI metrics.
@@ -36,7 +37,7 @@
 ## Function that converts and computes SSCI from .xyz/.ptx/.fls files
 SSCI <- function(input_fls="*.fls", align_to_terrain=T,
                                      voxel_size=0.1, slice_thickness=0.5,
-                                     angular_resolution=360/2560,CROP_SOR_xyz=F,crop_circular=F,
+                                     angular_resolution=360/2560,CROP_SOR_xyz=F,crop_circular=F,crop_circular_radius=10,
                                      save_steps=T,
                                      plotting=F){
 
@@ -64,8 +65,8 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   if (file.exists(SSCI_out)){cat(SSCI_out,"already computed\n"); setwd(cur_wd); return()}
 
   ## Helper function for circular crop
-  circleFun <- function(center = c(0,0),diameter = 10, npoints = 72){
-    r = diameter / 2
+  circleFun <- function(center = c(0,0),radius = crop_circular_radius, npoints = 72){
+    r = radius
     tt <- seq(0,2*pi,length.out = npoints)
     xx <- center[1] + r * cos(tt)
     yy <- center[2] + r * sin(tt)
