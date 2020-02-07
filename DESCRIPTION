@@ -12,6 +12,6 @@ License: Proprietary. Do not distribute outside of TU Dresden working group.
 Encoding: UTF-8
 LazyData: true
 Imports: VoxR, foreach, doParallel, parallel, dplyr, ggplot2, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon
-Depends: dplyr, ggplot2, readr, alphahull
+Depends: dplyr, ggplot2, readr, alphahull, foreach, doParallel, parallel,
 Suggests: tools
 RoxygenNote: 7.0.2

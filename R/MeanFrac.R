@@ -12,6 +12,7 @@
 #' @param plotting Logical. Should the MeanFrac polygons be plotted. Note: This may takes a long time. Default FALSE.
 #' @return List with MeanFrac and fractal dimension for each cross section
 #' @export
+#' @importFrom foreach "%dopar%"
 #' @examples
 #' MeanFrac(input_cloud=df, angular_resolution=360/2560, plotting=F)
 ## ****************************************************************************
@@ -132,7 +133,7 @@ MeanFrac <- function(input_cloud=df,
 
   } # END-OF-FOREACH-LOOP
 
-  section_result <- as.data.frame(rbindlist(result))
+  section_result <- as.data.frame(data.table::rbindlist(result))
   sections$area <- section_result$area
   sections$perimeter <- section_result$perimeter
   sections$FRAC <- section_result$FRAC
