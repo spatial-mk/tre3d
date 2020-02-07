@@ -62,7 +62,7 @@ align_slope_plane_fit <- function(terrain_data="*.xyz", full_data="*.xyz", plott
 
   ## ----------------------------------------------------------------------------
   ## Step: Fit a plane using SVD
-  cat(bold(blue("\n>>> Compute plane fit using SVD")))
+  cat(crayon::bold(crayon::blue("\n>>> Compute plane fit using SVD")))
   ## https://math.stackexchange.com/questions/2810048/plane-fitting-using-svd-normal-vector
   ## Compute SVD and take v3 from V matrix to get plane normal vector
   SVD <- svd(reduced)
