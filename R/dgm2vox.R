@@ -1,14 +1,15 @@
-#' Voxel grid reduction an interpolation of ground point cloud (DGM).
+#' Voxelization of a set of ground points (DGM).
 #' @author Carsten Hess, last updated: 10.02.2020
-#' @description Converts cloud of ground points (x y z) to a voxel grid with defined voxel size.
-#' @param input_dgm A file or data.frame containing a ground points with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.
-#' @param voxel_size Size of the voxels (in meter) in the reduced (gridded) point cloud of the ground (DGM). Default 0.1
-#' @param raster_size Size of the rastergrid (in meter) to preprocess the ground points (DGM) to further eliminate noise points above ground.
-#' @return The reduced point cloud voxel grid as data.frame with column names x y z.
+#' @description Converts cloud of ground points (x y z) to a voxelgrid model with defined voxel size. Gaps/missing points in the voxelgrid were interpolated.
+#' @param input_dgm A file or data.frame containing a set ground points with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.
+#' @param voxel_size Size of the voxel edge length (in meter) of the voxelgrid ground points (DGM). Default 0.1
+#' @param raster_size Size of the rastergrid (in meter) of preprocessed ground points (DGM) to further eliminate possible noise points at excessive ground level.
+#' @return Gridded DGM point cloud fitted to the underlying voxel size.
 #' @export
 #' @examples
-#' cloud2vox("tree1.xyz", 0.03) # 0.7853982
-get_dgm_voxelmodel <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
+#'
+
+dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
 
   ## Check what type of input is provided for tree_i: data.frame or file
   if(is.data.frame(input_cloud)){
