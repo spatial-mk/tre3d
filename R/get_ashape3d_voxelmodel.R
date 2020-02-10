@@ -2,13 +2,13 @@
 #' @author Carsten Hess, last updated: 10.02.2020
 #' @description Voxelization of an 3D alpha shape crown model into the voxelgrid of specific voxel size
 #' @param input_ashape3d Tree crowns ashape3d object based on alphashape3d R package (see get_3d_alpha_shape)
-#' @param voxel_size Size of the voxels (in meter) of the underlying voxel grid. Default 0.03
+#' @param voxel_size Size of the voxels (in meter) of the underlying voxel grid. Default 0.2
 #' @return Simple voxel grid point cloud (X, Y, Z) of all voxels inside the given 3D alpha shape.
 #' @export
 #' @examples
 #'
 
-ashape3D2vox <- function(input_ashape3d="", voxel_size=0.3) {
+get_ashape3d_voxelmodel <- function(input_ashape3d="", voxel_size=0.2) {
 
   # first simple check that an ashape3d object was delivered
   if(length(input_ashape3d)>0) {
