@@ -4,7 +4,7 @@
 #' @param input_dgm A file or data.frame containing a set ground points with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.
 #' @param voxel_size Size of the voxel edge length (in meter) of the voxelgrid ground points (DGM). Default 0.1
 #' @param raster_size Size of the rastergrid (in meter) of preprocessed ground points (DGM) to further eliminate possible noise points at excessive ground level.
-#' @return Gridded DGM point cloud fitted to the underlying voxel size.
+#' @return Voxelgrid of DGM with closed/interploated gaps due to occlusions.
 #' @export
 #' @examples
 #'
@@ -28,7 +28,7 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
   dgm <- pcd[,c(1:3)]
   colnames(dgm)<-c("X","Y","Z")
 
-  ## rasterize high resolution DGM to eliminate possible noise
+  ## pre-rasterize DGM to eliminate noise as lowest points but with to excessive ground level
   ## raster_size > voxel_size
   raster <- dgm
   raster$X <- round_any(raster$X, raster_size)
@@ -37,7 +37,7 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
   ## dummy tables for data manipulation
   dy <- aggregate(Z ~ X + Y, raster, min)
 
-  dy1 <- interp(dy$X, dy$Y, dy$Z, duplicate="mean"
+  dy1 <- akima::interp(dy$X, dy$Y, dy$Z, duplicate="mean"
                 , xo=seq(min(dy$X), max(dy$X), by = voxel_size)
                 , yo=seq(min(dy$Y), max(dy$Y), by = voxel_size)
   )
@@ -47,6 +47,7 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
                     , Y=rep(dy1$y,each=length(dy1$x))
                     , Z=as.vector(dy1$z))
 
+  ## TODO for previous steps: Find a smoother way to eliminate outliers/noise or gaps
   ## remove NAs
   dy2 <- na.omit(dy2)
 
@@ -58,6 +59,8 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
   dy2$Y <- round_any(dy2$Y, voxel_size)
 
   ## Return DGM of unique ground voxels
-  return(unique(subset(dy2, select=c(X,Y,Z))))
+  dgm_vox <- unique(subset(dy2, select=c(X,Y,Z)))
+
+  return(dgm_vox)
 
 } # END-OF-FUNCTION
