@@ -3,7 +3,8 @@ Type: Package
 Title: Antarctic Pinguin Measurements
 Version: 0.1.1
 Date: 30.01.2020
-Authors@R: c(person("Matthias","Kunz", role=c("aut","cre"), email="matthias.kunz@tu-dresden.de"))
+Authors@R: c(person("Matthias","Kunz", role=c("aut","cre"), email="matthias.kunz@tu-dresden.de")
+  , person("Carsten","Hess", role=c("aut","cre"), email="hess@leuphana.de"))
 Maintainer: Matthias Kunz <matthias.kunz@pinguin-dresden.de>
 Description: Antarctic Pinguin Measurements
     Use four spaces when indenting paragraphs within the Description.
@@ -12,6 +13,6 @@ License: Proprietary. Do not distribute outside of TU Dresden working group.
 Encoding: UTF-8
 LazyData: true
 Imports: VoxR, foreach, doParallel, parallel, dplyr, ggplot2, data.table, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon
-Depends: dplyr, ggplot2, readr, alphahull, foreach, doParallel, parallel, data.table
+Depends: akima, dplyr, ggplot2, readr, alphahull, foreach, doParallel, parallel, data.table
 Suggests: tools
 RoxygenNote: 7.0.2
