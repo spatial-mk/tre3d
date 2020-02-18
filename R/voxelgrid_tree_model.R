@@ -16,9 +16,9 @@ voxelgrid_tree_model <- function(tree_id="Dummy", pcd_vox=NA, as3d_vox=NA, alpha
   if(is.data.frame(pcd_vox) == TRUE) {
 
     ## precaution check > fix roundings in case they were missing
-    pcd_vox$X <- round_any(pcd_vox$X, voxel_size)
-    pcd_vox$Y <- round_any(pcd_vox$Y, voxel_size)
-    pcd_vox$Z <- round_any(pcd_vox$Z, voxel_size)
+    pcd_vox$X <- plyr::round_any(pcd_vox$x, voxel_size)
+    pcd_vox$Y <- plyr::round_any(pcd_vox$y, voxel_size)
+    pcd_vox$Z <- plyr::round_any(pcd_vox$z, voxel_size)
     ## precaution check > only unique voxel
     pcd <- unique(subset(pcd_vox, select=c(X,Y,Z)))
     ## generate unique voxel ID based on coordinates
@@ -32,9 +32,9 @@ voxelgrid_tree_model <- function(tree_id="Dummy", pcd_vox=NA, as3d_vox=NA, alpha
   if(is.data.frame(as3d_vox) == TRUE) {
 
     ## precaution check > fix roundings in case they were missing
-    as3d_vox$X <- round_any(as3d_vox$X, voxel_size)
-    as3d_vox$Y <- round_any(as3d_vox$Y, voxel_size)
-    as3d_vox$Z <- round_any(as3d_vox$Z, voxel_size)
+    as3d_vox$X <- plyr::round_any(as3d_vox$X, voxel_size)
+    as3d_vox$Y <- plyr::round_any(as3d_vox$Y, voxel_size)
+    as3d_vox$Z <- plyr::round_any(as3d_vox$Z, voxel_size)
 
     ## precaution check > only unique voxel
     as3d <- unique(as3d, select=c(X,Y,Z))

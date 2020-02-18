@@ -31,8 +31,8 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
   ## pre-rasterize DGM to eliminate noise as lowest points but with to excessive ground level
   ## raster_size > voxel_size
   raster <- dgm
-  raster$X <- round_any(raster$X, raster_size)
-  raster$Y <- round_any(raster$Y, raster_size)
+  raster$X <- plyr::round_any(raster$X, raster_size)
+  raster$Y <- plyr::round_any(raster$Y, raster_size)
 
   ## dummy tables for data manipulation
   dy <- aggregate(Z ~ X + Y, raster, min)
@@ -52,11 +52,11 @@ dgm2vox <- function(input_cloud="*.xyz", voxel_size=0.1, raster_size=0.2){
   dy2 <- na.omit(dy2)
 
   ## transform Z into the voxelraster
-  dy2$Z <- round_any(dy2$Z, voxel_size)
+  dy2$Z <- plyr::round_any(dy2$Z, voxel_size)
 
   ## fix roundings
-  dy2$X <- round_any(dy2$X, voxel_size)
-  dy2$Y <- round_any(dy2$Y, voxel_size)
+  dy2$X <- plyr::round_any(dy2$X, voxel_size)
+  dy2$Y <- plyr::round_any(dy2$Y, voxel_size)
 
   ## Return DGM of unique ground voxels
   dgm_vox <- unique(subset(dy2, select=c(X,Y,Z)))

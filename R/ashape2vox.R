@@ -20,18 +20,21 @@ ashape2vox <- function(input_ashape3d="", voxel_size=0.2) {
   # get underlying point cloud of the ahsape3d
   pcd <- as.data.frame(as3d$x)
 
+  # Set colnames to x y z
+  colnames(pcd) <- c("x","y","z")
+
   # create closed bounding box voxelraster including the 3d alpha shape
   # estimate range dimensions of this bounding box
-  xmin <- plyr::round_any(min(pcd$X), voxel_size, f=floor) - (2*voxel_size)
-  xmax <- plyr::round_any(max(pcd$X), voxel_size, f=ceiling) + (2*voxel_size)
+  xmin <- plyr::round_any(min(pcd$x), voxel_size, f=floor) - (2*voxel_size)
+  xmax <- plyr::round_any(max(pcd$x), voxel_size, f=ceiling) + (2*voxel_size)
   xlen <- length(seq(xmin, xmax, voxel_size))
 
-  ymin <- plyr::round_any(min(pcd$Y), voxel_size, f=floor) - (2*voxel_size)
-  ymax <- plyr::round_any(max(pcd$Y), voxel_size, f=ceiling) + (2*voxel_size)
+  ymin <- plyr::round_any(min(pcd$y), voxel_size, f=floor) - (2*voxel_size)
+  ymax <- plyr::round_any(max(pcd$y), voxel_size, f=ceiling) + (2*voxel_size)
   ylen <- length(seq(ymin, ymax, voxel_size))
 
-  zmin <- plyr::round_any(min(pcd$Z), voxel_size, f=floor) - (2*voxel_size)
-  zmax <- plyr::round_any(max(pcd$Z), voxel_size, f=ceiling) + (2*voxel_size)
+  zmin <- plyr::round_any(min(pcd$z), voxel_size, f=floor) - (2*voxel_size)
+  zmax <- plyr::round_any(max(pcd$z), voxel_size, f=ceiling) + (2*voxel_size)
   zlen <- length(seq(zmin, zmax, voxel_size))
 
   # create data frame bounding box voxelraster as data frame
