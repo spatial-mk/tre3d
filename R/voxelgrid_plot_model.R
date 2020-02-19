@@ -42,10 +42,10 @@ voxelgrid_plot_model <- function(plot_id="Dummy", path_voxelgrid_folder=NA, voxe
 
   ## manipulate data.frame dummies
   dy1_trees <- merge(trees, ground, by=c("X","Y"), all.x=TRUE)
-  dy1_trees$height_grd <- round_any( (dy1_trees$Z - dy1_trees$Z_grd), voxel_size)
+  dy1_trees$height_grd <- plyr::round_any( (dy1_trees$Z - dy1_trees$Z_grd), voxel_size)
 
   ## filter out tree voxel: only voxel above ground
-  dy2_trees <- subset(dy_trees, height_grd > 0, select=c(X, Y, Z, id, type, height_grd))
+  dy2_trees <- subset(dy1_trees, height_grd > 0, select=c(X, Y, Z, id, type, height_grd))
 
   ## +++ create datatable ++++++++++++++++++++++++++++++++++++++++++++++
   ## add missing fields to dgm_area
