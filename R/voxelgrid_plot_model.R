@@ -1,10 +1,10 @@
-#' Create a voxelgrid plot datatable to further analyse of the spatial canopy occupation.
-#' @author Carsten Hess, last updated: 14.02.2020
-#' @description Join the voxelgrid models of the DGM and all trees as one big datatable.
+#' Create a voxelgrid datatable on plot level to further analyse of the spatial canopy occupation.
+#' @author Carsten Hess, last updated: 20.02.2020
+#' @description Join the voxelgrid models of the DGM and all trees as one big voxelgrid datatable.
 #' @param plot_id Name/ID of the plot/forest stand
-#' @param path_voxelgrid_folder Plot based path to the folder which contains necessary metadata table all relevant voxelgrid models.
+#' @param path_voxelgrid_folder Plot based path to the folder which contains all relevant tree and DGM voxelgrid models.
 #' @param clip_area Clip the underlying dgm to the spatial extend of the projected tree voxelgrid models
-#' @return Datatable which contains all plot based voxelgrid models including DGM and the height above ground for each tree voxel.
+#' @return Saved datagrid table which contains all plot based voxelgrid models and data.table object with total voxel volumes for each type of occupation.
 #' @export
 #' @examples
 #'
@@ -61,5 +61,19 @@ voxelgrid_plot_model <- function(plot_id="Dummy", path_voxelgrid_folder=NA, voxe
   save(datagrid, file=file.path(datafile))
   write.table(datagrid, file=file.path(csvfile), quote = FALSE, sep=";", dec = ".", row.names = F, col.names = T)
 
+  ## simple aggregation of voxel positions to estimate total volumes for each type of occupation (single,twofold,threefold ...)
+  occupations <- data.frame(num=1:5, occ=c("single","twofold","threefold","fourfold","fivefold"))
+  dy1 <- subset(datagrid, type!="ground")
+  dy1$num <- 1
+  ## sum(num) for each Voxel position
+  dy2 <- aggregate(num ~ X + Y + Z, dy1, sum)
+  ## add "factor" occupation for each voxel position
+  dy3 <- merge(dy2, occupations, by=c("num"), all.x=TRUE)
+  dy3$num <- 1
+
+  agg <- aggregate(num ~ occupations, dy3, sum)
+  agg$volume <- agg$num * voxel_size
+
+  return(agg)
 
 } # END-OF-FUNCTION
