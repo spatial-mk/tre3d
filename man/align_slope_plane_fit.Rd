@@ -16,7 +16,7 @@ align_slope_plane_fit(
 \item{full_data}{A file containing the points that will be aligned/rotation based on the plane surface normal}
 }
 \value{
-Deos not return anything at the moment but produces files.
+Slope in degree of the aligned data.
 }
 \description{
 Fits a 3D plane into a set of 3D points (x,y,z)

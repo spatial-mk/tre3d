@@ -2,7 +2,7 @@
 % Please edit documentation in R/voxelgrid_plot_model.R
 \name{voxelgrid_plot_model}
 \alias{voxelgrid_plot_model}
-\title{Create a voxelgrid plot datatable to further analyse of the spatial canopy occupation.}
+\title{Create a voxelgrid datatable on plot level to further analyse of the spatial canopy occupation.}
 \usage{
 voxelgrid_plot_model(
   plot_id = "Dummy",
@@ -14,19 +14,19 @@ voxelgrid_plot_model(
 \arguments{
 \item{plot_id}{Name/ID of the plot/forest stand}
 
-\item{path_voxelgrid_folder}{Plot based path to the folder which contains necessary metadata table all relevant voxelgrid models.}
+\item{path_voxelgrid_folder}{Plot based path to the folder which contains all relevant tree and DGM voxelgrid models.}
 
 \item{clip_area}{Clip the underlying dgm to the spatial extend of the projected tree voxelgrid models}
 }
 \value{
-Datatable which contains all plot based voxelgrid models including DGM and the height above ground for each tree voxel.
+Saved datagrid table which contains all plot based voxelgrid models and data.table object with total voxel volumes for each type of occupation.
 }
 \description{
-Join the voxelgrid models of the DGM and all trees as one big datatable.
+Join the voxelgrid models of the DGM and all trees as one big voxelgrid datatable.
 }
 \examples{
 
 }
 \author{
-Carsten Hess, last updated: 14.02.2020
+Carsten Hess, last updated: 20.02.2020
 }

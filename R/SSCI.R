@@ -138,7 +138,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       temp$X3 <- temp$X3 - scanner_elevation
 
       ## Remove extreme points 60 m above lowest point, this sometimes happens
-      temp <- dplyr::filter(temp, X3 < 60)
+      temp <- dplyr::filter(temp, X3 < 50)
 
       ## Remove the possible RGB columns to reduce the size
       temp$X4 <- NULL; temp$X5 <- NULL; temp$X6 <- NULL
@@ -270,7 +270,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   ## Extract the ground points as DEM
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\las2dem.exe ","-i ",
-                                   paste0(getwd(),"/",fls_file, "_ground_reduced.las"), " -step 0.25", " -o ",
+                                   paste0(getwd(),"/",fls_file, "_ground_reduced.las"), " -step 0.2", " -o ",
                                    paste0(getwd(),"/",fls_file, "_ground_dem.xyz")))
   terrain<-read.table(paste0(getwd(),"/",fls_file, "_ground_dem.xyz"), sep=",", header = F)## Save terrain file with space as delimeter
   write.table(x = terrain[complete.cases(terrain),], file = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"), sep=" ", col.names = F, row.names = F, quote = F)
@@ -285,13 +285,13 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   # Make alignment
   cat(crayon::bold(crayon::blue("\n>>> Align point cloud to terrain slope\n")))
   if (extension=="fls" | extension=="ptx"){
-    tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
+    slope<-tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
                         full_data = paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), plotting=plotting)
   } else if (CROP_SOR_xyz==T){
-    tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
+    slope<-tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
                           full_data = paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), plotting=plotting)
   } else {
-    tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
+    slope<-tre3d::align_slope_plane_fit(terrain_data = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"),
                           full_data = input_fls, plotting=plotting)
   }
 
@@ -303,12 +303,15 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   if (extension=="fls"| extension=="ptx"){
     cloud<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
                                        delim = " ", col_names = F))
+    cloud_file <- paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz")
   } else if (CROP_SOR_xyz==T){
     cloud<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
                                        delim = " ", col_names = F))
+    cloud_file <- paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz")
   } else {
     cloud<-suppressMessages(read_delim(input_fls,
                                        delim = " ", col_names = F))
+    cloud_file <- input_fls
   }
 
   rMeanFrac <- MeanFrac(cloud, plotting = plotting, angular_resolution = angular_resolution)
@@ -332,6 +335,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   rMeanFrac_aligned <- tre3d::MeanFrac(cloud_aligned, plotting = plotting, angular_resolution = angular_resolution)
   rENL_aligned <- tre3d::ENL(input_cloud = cloud_aligned, voxel_size = voxel_size, slice_thickness = slice_thickness)
+  rENL_HN <- tre3d::ENL_height_normalized(input_cloud = cloud_file, voxel_size = voxel_size, slice_thickness = slice_thickness)
   SSCI_aligned <- rMeanFrac_aligned$result_MeanFrac^(log(as.numeric(rENL_aligned$ENL)))
   rm(cloud_aligned)
   gc() # Garbage (cache) collection
@@ -349,7 +353,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   result<-data.frame(file=basename(input_fls),
                      MeanFrac=rMeanFrac$result_MeanFrac, ENL=rENL$ENL, SSCI=SSCI,
                      MeanFrac_aligned=rMeanFrac_aligned$result_MeanFrac, ENL_aligned=rENL_aligned$ENL, SSCI_aligned=SSCI_aligned,
-                     voxel_size=rENL$voxel_size, slice_thickness=rENL$slice_thickness)
+                     voxel_size=rENL$voxel_size, slice_thickness=rENL$slice_thickness, Slope=slope, ENL_HN=rENL_HN$ENL)
   write.table(result, file = SSCI_out,
               sep = ";", col.names = T, row.names = F, quote = F)
 
@@ -357,6 +361,6 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   return(list(File=basename(input_fls),MeanFrac=rMeanFrac, MeanFrac_aligned=rMeanFrac_aligned,
               ENL=rENL, ENL_aligned=rENL_aligned,
-              SSCI=SSCI, SSCI_aligned=SSCI_aligned))
+              SSCI=SSCI, SSCI_aligned=SSCI_aligned, Slope=slope, ENL_HN=rENL_HN))
 
 } ## END-OF-FUNCTION

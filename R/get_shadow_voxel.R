@@ -9,6 +9,9 @@
 
 get_shadow_voxel <- function(input_vox=NA, voxel_size=0.2) {
 
+  # Set colnames to X Y Z
+  colnames(input_vox) <- c("X","Y","Z")
+
   input_vox$shadow <- FALSE
 
   # Check for occluded shadow voxel

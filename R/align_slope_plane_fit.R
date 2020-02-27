@@ -13,7 +13,7 @@
 #' @description Fits a 3D plane into a set of 3D points (x,y,z)
 #' @param terrain_data A file containing the (terrain) points into which the plane will be fitted
 #' @param full_data A file containing the points that will be aligned/rotation based on the plane surface normal
-#' @return Deos not return anything at the moment but produces files.
+#' @return Slope in degree of the aligned data.
 #' @export
 #' @examples
 #' align_slope_plane_fit(terrain_data="terrain.xyz", full_data="full.xyz", plotting=F)
@@ -199,6 +199,8 @@ align_slope_plane_fit <- function(terrain_data="*.xyz", full_data="*.xyz", plott
   gc() # clear cache/garbage
 
   setwd(current_wd) # Set wd back to original wd
+
+  return(slope)
 
 }
 
