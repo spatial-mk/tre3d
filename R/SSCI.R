@@ -179,7 +179,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
     cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
     system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                      paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
-                                     " -o ", paste0(getwd(),"/",fls_file, ".las")))
+                                     " -o ", paste0(getwd(),"/",fls_file, ".laz")))
   } else {
 
     ## Apply CROP and SOR filter xyz file if CROP_SOR_xyz == T
@@ -233,14 +233,14 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
-                                       " -o ", paste0(getwd(),"/",fls_file, ".las")))
+                                       " -o ", paste0(getwd(),"/",fls_file, ".laz")))
 
 
     } else {
       cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        input_fls, " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
-                                       " -o ", paste0(getwd(),"/",fls_file, ".las")))
+                                       " -o ", paste0(getwd(),"/",fls_file, ".laz")))
     }
 
 
@@ -250,34 +250,34 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   ## Classify ground (and vegetation) points
   cat(crayon::bold(crayon::blue("\n>>> Classify ground and vegetation\n")))
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\lasground.exe ","-i ",
-                                   paste0(getwd(),"/",fls_file, ".las"), " -o ", paste0(getwd(),"/",fls_file, "_classification.las"),
-                                   " -quiet -all_returns -not_airborne -v -step 1"))
+                                   paste0(getwd(),"/",fls_file, ".laz"), " -o ", paste0(getwd(),"/",fls_file, "_classification.laz"),
+                                   " -quiet -all_returns -not_airborne -v -step 1 -spike 0.3"))
 
   ## Extract the ground points
   cat(crayon::bold(crayon::blue("\n>>> Extract terrain/ground points\n")))
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\lasground.exe ","-i ",
-                                   paste0(getwd(),"/",fls_file, "_classification.las"),
+                                   paste0(getwd(),"/",fls_file, "_classification.laz"),
                                    " -keep_xy -5 -5 5 5", " -quiet" ," -keep_class 2 -oparse xyz",
-                                   " -o ", paste0(getwd(),"/",fls_file, "_ground.las")))
-  unlink(paste0(getwd(),"/",fls_file, "_classification.las")) ## Remove the temporary files
+                                   " -o ", paste0(getwd(),"/",fls_file, "_ground.laz")))
+  unlink(paste0(getwd(),"/",fls_file, "_classification.laz")) ## Remove the temporary files
 
   ## Reduce point number before ground extraction to avoid lastools licence issues
   cat(crayon::bold(crayon::blue("\n>>> Thin point cloud to avoid LAStools licence issues\n")))
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\lasthin.exe ","-i ",
-                                   paste0(getwd(),"/",fls_file, "_ground.las"),
+                                   paste0(getwd(),"/",fls_file, "_ground.laz"),
                                    " -step 0.04 -quiet -central -o ",
-                                   paste0(getwd(),"/",fls_file, "_ground_reduced.las")))
+                                   paste0(getwd(),"/",fls_file, "_ground_reduced.laz")))
 
   ## Extract the ground points as DEM
   system("cmd.exe", input = paste0("C:\\LAStools\\bin\\las2dem.exe ","-i ",
-                                   paste0(getwd(),"/",fls_file, "_ground_reduced.las"), " -step 0.2", " -o ",
+                                   paste0(getwd(),"/",fls_file, "_ground_reduced.laz"), " -step 0.2", " -o ",
                                    paste0(getwd(),"/",fls_file, "_ground_dem.xyz")))
   terrain<-read.table(paste0(getwd(),"/",fls_file, "_ground_dem.xyz"), sep=",", header = F)## Save terrain file with space as delimeter
   write.table(x = terrain[complete.cases(terrain),], file = paste0(getwd(),"/",fls_file, "_ground_dem.xyz"), sep=" ", col.names = F, row.names = F, quote = F)
 
-  unlink(paste0(getwd(),"/",fls_file, "_ground.las")) ## Remove the temporary files
-  unlink(paste0(getwd(),"/",fls_file, "_ground_reduced.las")) ## Remove the temporary files
-  unlink(paste0(getwd(),"/",fls_file, ".las")) ## Remove the temporary files
+  unlink(paste0(getwd(),"/",fls_file, "_ground.laz")) ## Remove the temporary files
+  unlink(paste0(getwd(),"/",fls_file, "_ground_reduced.laz")) ## Remove the temporary files
+  unlink(paste0(getwd(),"/",fls_file, ".laz")) ## Remove the temporary files
 
   ## ----------------------------------------------------------------------------
   ## Step 5: Make alignement to terrain
