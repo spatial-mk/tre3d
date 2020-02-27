@@ -316,6 +316,10 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   rMeanFrac <- MeanFrac(cloud, plotting = plotting, angular_resolution = angular_resolution)
   rENL <- ENL(input_cloud = cloud,  voxel_size = voxel_size, slice_thickness = slice_thickness)
+
+  ## Compute height normalized vertical layers
+  rENL_HN <- tre3d::ENL_height_normalized(input_cloud = cloud_file, voxel_size = voxel_size, slice_thickness = slice_thickness)
+
   SSCI <- rMeanFrac$result_MeanFrac^(log(as.numeric(rENL$ENL)))
   rm(cloud)
   gc() # Garbage (cache) collection
@@ -335,7 +339,6 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   rMeanFrac_aligned <- tre3d::MeanFrac(cloud_aligned, plotting = plotting, angular_resolution = angular_resolution)
   rENL_aligned <- tre3d::ENL(input_cloud = cloud_aligned, voxel_size = voxel_size, slice_thickness = slice_thickness)
-  rENL_HN <- tre3d::ENL_height_normalized(input_cloud = cloud_file, voxel_size = voxel_size, slice_thickness = slice_thickness)
   SSCI_aligned <- rMeanFrac_aligned$result_MeanFrac^(log(as.numeric(rENL_aligned$ENL)))
   rm(cloud_aligned)
   gc() # Garbage (cache) collection

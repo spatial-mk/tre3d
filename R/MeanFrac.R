@@ -24,10 +24,6 @@
 #library(doParallel) ## R-libraries needed for paralell processing
 #library(data.table) ## rbindlist function
 
-## Helper functions
-#deg2rad <- function(angle=0){angle = angle * pi / 180; return(angle)}
-#rad2deg <- function(angle=0){angle = angle * 180 / pi; return(angle)}
-
 MeanFrac <- function(input_cloud=df,
                  angular_resolution=360/2560,
                  plotting=F){
@@ -41,9 +37,9 @@ MeanFrac <- function(input_cloud=df,
   cat("\n>>> Convert from cartesian to polar coordinates")
   df$r = sqrt(df$x^2 + df$y^2 + df$z^2)
   df$inclination = acos(df$z / df$r)
-  df$inclination_deg = rad2deg(df$inclination)
+  df$inclination_deg = tre3d::rad2deg(df$inclination)
   df$azimuth = atan2(df$y,df$x)
-  df$azimuth_deg = ifelse(rad2deg(df$azimuth)<0, rad2deg(df$azimuth)+360, rad2deg(df$azimuth))
+  df$azimuth_deg = ifelse(rad2deg(df$azimuth)<0, tre3d::rad2deg(df$azimuth)+360, tre3d::rad2deg(df$azimuth))
 
   ## Check reverse conversion
   df$x1 <- df$r * sin(df$inclination) * cos(df$azimuth)
@@ -87,10 +83,10 @@ MeanFrac <- function(input_cloud=df,
     cs$inclination_deg = cs$inclination_deg + 90
 
     ## Convert to cartesian coordinates to get area and perimeter of crosssection polygon
-    deg2rad <- function(angle=0){angle = angle * pi / 180; return(angle)}
-    rad2deg <- function(angle=0){angle = angle * 180 / pi; return(angle)}
-    cs$xx <- cs$r * cos(deg2rad(cs$inclination_deg))
-    cs$yy <- cs$r * sin(deg2rad(cs$inclination_deg))
+    #deg2rad <- function(angle=0){angle = angle * pi / 180; return(angle)}
+    #rad2deg <- function(angle=0){angle = angle * 180 / pi; return(angle)}
+    cs$xx <- cs$r * cos(tre3d::deg2rad(cs$inclination_deg))
+    cs$yy <- cs$r * sin(tre3d::deg2rad(cs$inclination_deg))
 
     ## Generate polygon from points ordered by inclination angle
     cs <- cs[order(cs$inclination_deg),]
