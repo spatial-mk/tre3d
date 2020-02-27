@@ -40,7 +40,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
                                      voxel_size=0.1, slice_thickness=0.5,
                                      angular_resolution=360/2560,CROP_SOR_xyz=F,crop_square_length=10,
                                      crop_circular=F,crop_circular_radius=10,
-                                     save_steps=T,
+                                     save_steps=F,
                                      plotting=F){
 
   cat(crayon::red("\n--------------------"),crayon::bold(crayon::blue("\n>>> INPUT:", input_fls,"\n")))
@@ -345,6 +345,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   ## Delete steps (temporary file outputs) if set
   if(save_steps==F){
+    unlink(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"))
     unlink(paste0(tools::file_path_sans_ext(basename(input_fls)),"_aligned.xyz"))
     unlink(paste0(getwd(),"/",fls_file, "_CROPPED_SOR_aligned.xyz"))
     unlink(paste0(getwd(),"/",fls_file, "_ground_dem.xyz"))

@@ -14,7 +14,7 @@ SSCI(
   crop_square_length = 10,
   crop_circular = F,
   crop_circular_radius = 10,
-  save_steps = T,
+  save_steps = F,
   plotting = F
 )
 }
