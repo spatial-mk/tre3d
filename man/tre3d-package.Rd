@@ -24,6 +24,7 @@ cbh_from_qsm\cr
 cloud2vox\cr
 MeanFrac\cr
 ENL\cr
+ENL_height_normalize\cr
 align_slope_plane_fit\cr
 SSCI\cr
 print_CPA\cr
