@@ -176,7 +176,7 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
 
   ## Substep: Extract terrain points using LAStools
   if (extension=="fls" | extension=="ptx"){
-    cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
+    cat(crayon::bold(crayon::blue("\n>>> Convert xyz to laz\n")))
     system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                      paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                      " -o ", paste0(getwd(),"/",fls_file, ".laz")))
@@ -230,14 +230,14 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
       unlink(paste0(getwd(),"/",fls_file, "_log_sor.txt"))
 
       ## CONVERT ------------
-      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to laz\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"), " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                        " -o ", paste0(getwd(),"/",fls_file, ".laz")))
 
 
     } else {
-      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to las\n")))
+      cat(crayon::bold(crayon::blue("\n>>> Convert xyz to laz\n")))
       system("cmd.exe", input = paste0("C:\\LAStools\\bin\\txt2las.exe ","-i ",
                                        input_fls, " -quiet", " -parse xyz -set_scale 0.001 0.001 0.001",
                                        " -o ", paste0(getwd(),"/",fls_file, ".laz")))
