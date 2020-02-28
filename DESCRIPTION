@@ -12,7 +12,7 @@ License: Proprietary. Do not distribute outside of TU Dresden working group.
     Use on request only.
 Encoding: UTF-8
 LazyData: true
-Imports: VoxR, foreach, doParallel, parallel, dplyr, plyr, ggplot2, data.table, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon, scales, magrittr
-Depends: akima, dplyr, ggplot2, readr, alphahull, foreach, doParallel, parallel, data.table
+Imports: VoxR, foreach, doParallel, parallel, dplyr, plyr, readr, ggplot2, data.table, readr, sp, circular, ineq, rgl, reshape2, alphashape3d, igraph, alphahull, spatialEco, crayon, scales, magrittr
+Depends: akima, dplyr, ggplot2, alphahull, foreach, doParallel, parallel, data.table
 Suggests: tools
 RoxygenNote: 7.0.2

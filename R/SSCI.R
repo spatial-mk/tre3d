@@ -301,15 +301,15 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   ## Original case
   cat(crayon::bold(crayon::blue("\n>>> Compute MeanFrac, ENL and SSCI for not-aligned (original) version\n")))
   if (extension=="fls"| extension=="ptx"){
-    cloud<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
+    cloud<-suppressMessages(readr::read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
                                        delim = " ", col_names = F))
     cloud_file <- paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz")
   } else if (CROP_SOR_xyz==T){
-    cloud<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
+    cloud<-suppressMessages(readr::read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz"),
                                        delim = " ", col_names = F))
     cloud_file <- paste0(getwd(),"/",fls_file, "_CROPPED_SOR.xyz")
   } else {
-    cloud<-suppressMessages(read_delim(input_fls,
+    cloud<-suppressMessages(readr::read_delim(input_fls,
                                        delim = " ", col_names = F))
     cloud_file <- input_fls
   }
@@ -327,13 +327,13 @@ SSCI <- function(input_fls="*.fls", align_to_terrain=T,
   ## Aligned case
   cat(crayon::bold(crayon::blue("\n>>> Compute MeanFrac, ENL and SSCI for aligned version\n")))
   if (extension=="fls"| extension=="ptx"){
-    cloud_aligned<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR_aligned.xyz"),
+    cloud_aligned<-suppressMessages(readr::read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR_aligned.xyz"),
                                                delim = " ", col_names = F))
   } else if (CROP_SOR_xyz==T) {
-    cloud_aligned<-suppressMessages(read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR_aligned.xyz"),
+    cloud_aligned<-suppressMessages(readr::read_delim(paste0(getwd(),"/",fls_file, "_CROPPED_SOR_aligned.xyz"),
                                                delim = " ", col_names = F))
   } else {
-    cloud_aligned<-suppressMessages(read_delim(paste0(tools::file_path_sans_ext(basename(input_fls)),"_aligned.xyz"),
+    cloud_aligned<-suppressMessages(readr::read_delim(paste0(tools::file_path_sans_ext(basename(input_fls)),"_aligned.xyz"),
                                                delim = " ", col_names = F))
   }
 
