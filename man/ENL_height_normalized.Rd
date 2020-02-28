@@ -28,5 +28,5 @@ Computes the effective number of layers (ENL) after Ehbrecht et al. 2017
 ENL(input_cloud="*.xyz", voxel_size=0.05, slice_thickness=0.5)
 }
 \author{
-Matthias Kunz, last updated: 27.04.2019
+Matthias Kunz, last updated: 28.02.2020
 }

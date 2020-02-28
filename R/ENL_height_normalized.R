@@ -3,7 +3,7 @@
 ## Matthias Kunz, 27.02.2020
 
 #' Computes the effective number of layers (ENL) after Ehbrecht et al. 2016
-#' @author Matthias Kunz, last updated: 27.04.2019
+#' @author Matthias Kunz, last updated: 28.02.2020
 #' @description Computes the effective number of layers (ENL) after Ehbrecht et al. 2017
 #' @param input_cloud A 3D point cloud file as full path, e.g. "C:/tree1.xyz".
 #'     Assumes first three columns to be x y z without header. Futher columns are ignored.
