@@ -4,11 +4,8 @@
 \alias{get_3d_alpha_shape}
 \title{Computes the 3d alpha shape, volume, surface area, and centroid of a 3D set of points}
 \usage{
-get_3d_alpha_shape(
-  input_cloud = data.frame(x = runif(20), y = runif(20), z = runif(20)),
-  alpha = 1,
-  plot = FALSE
-)
+get_3d_alpha_shape(input_cloud = data.frame(x = runif(20), y = runif(20),
+  z = runif(20)), alpha = 1, plot = FALSE)
 }
 \arguments{
 \item{input_cloud}{A file or data.frame containing a tree point cloud with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.}

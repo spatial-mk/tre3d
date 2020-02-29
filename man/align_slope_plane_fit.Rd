@@ -4,11 +4,8 @@
 \alias{align_slope_plane_fit}
 \title{3D plane fit for a set of points}
 \usage{
-align_slope_plane_fit(
-  terrain_data = "*.xyz",
-  full_data = "*.xyz",
-  plotting = F
-)
+align_slope_plane_fit(terrain_data = "*.xyz", full_data = "*.xyz",
+  plotting = F)
 }
 \arguments{
 \item{terrain_data}{A file containing the (terrain) points into which the plane will be fitted}

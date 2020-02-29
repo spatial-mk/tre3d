@@ -4,22 +4,11 @@
 \alias{display_all}
 \title{Script that display a lot}
 \usage{
-display_all(
-  input_cloud = "*.xyz",
-  random_subsampling = TRUE,
-  qsm = "cyl_data*.txt",
-  cbh = 0,
-  alpha = 1.5,
-  display_qsm = FALSE,
-  display_crown_volume = TRUE,
-  display_cpa = TRUE,
-  display_strata = TRUE,
-  suppress_points = FALSE,
-  n_seg = 10,
-  subsample_percent = 25,
-  set_to_zero = TRUE,
-  mult = F
-)
+display_all(input_cloud = "*.xyz", random_subsampling = TRUE,
+  qsm = "cyl_data*.txt", cbh = 0, alpha = 1.5, display_qsm = FALSE,
+  display_crown_volume = TRUE, display_cpa = TRUE,
+  display_strata = TRUE, suppress_points = FALSE, n_seg = 10,
+  subsample_percent = 25, set_to_zero = TRUE, mult = F)
 }
 \arguments{
 \item{input_cloud}{A file or data.frame containing a tree point cloud with x y z. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.}

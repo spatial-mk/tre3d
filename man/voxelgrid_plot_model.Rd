@@ -4,12 +4,8 @@
 \alias{voxelgrid_plot_model}
 \title{Create a voxelgrid datatable on plot level to further analyse of the spatial canopy occupation.}
 \usage{
-voxelgrid_plot_model(
-  plot_id = "Dummy",
-  path_voxelgrid_folder = NA,
-  voxel_size = 0.2,
-  clip_area = TRUE
-)
+voxelgrid_plot_model(plot_id = "Dummy", path_voxelgrid_folder = NA,
+  voxel_size = 0.2, clip_area = TRUE)
 }
 \arguments{
 \item{plot_id}{Name/ID of the plot/forest stand}

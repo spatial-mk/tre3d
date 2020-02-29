@@ -4,14 +4,8 @@
 \alias{crown_complementarity}
 \title{Computation of crown complementarity based on slice volumes.}
 \usage{
-crown_complementarity(
-  tree_i = NA,
-  tree_j = NA,
-  strata_height = 0.3,
-  vox = FALSE,
-  voxel_size = 0.03,
-  plotting = FALSE
-)
+crown_complementarity(tree_i = NA, tree_j = NA, strata_height = 0.3,
+  vox = FALSE, voxel_size = 0.03, plotting = FALSE)
 }
 \arguments{
 \item{tree_i}{A file or data.frame containing a tree point cloud with x y z}

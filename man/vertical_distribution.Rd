@@ -4,12 +4,9 @@
 \alias{vertical_distribution}
 \title{Vertical_distribution.}
 \usage{
-vertical_distribution(
-  input_cloud = data.frame(x = runif(20), y = runif(20), z = runif(20)),
-  strata_height = 0.3,
-  vox = TRUE,
-  voxel_size = 0.03
-)
+vertical_distribution(input_cloud = data.frame(x = runif(20), y =
+  runif(20), z = runif(20)), strata_height = 0.3, vox = TRUE,
+  voxel_size = 0.03)
 }
 \arguments{
 \item{input_cloud}{A 3D point cloud file, e.g. "tree1.xyz".

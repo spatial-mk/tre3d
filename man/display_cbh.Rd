@@ -4,7 +4,8 @@
 \alias{display_cbh}
 \title{Display tree crown base height.}
 \usage{
-display_cbh(input_cloud = "*.xyz", cbh = 0, vox = TRUE, voxel_size = 0.03)
+display_cbh(input_cloud = "*.xyz", cbh = 0, vox = TRUE,
+  voxel_size = 0.03)
 }
 \arguments{
 \item{input_cloud}{A 3D point cloud file, e.g. "tree1.xyz".

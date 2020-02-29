@@ -4,18 +4,9 @@
 \alias{cylinder3d}
 \title{Visualise a 3D cylinder}
 \usage{
-cylinder3d(
-  p_start = c(0, 0, 0),
-  orient = c(1, 1, 1),
-  radius = 0.25,
-  length = 1,
-  order = 0,
-  n_seg = 12,
-  axis = F,
-  cylinders = T,
-  circles = F,
-  transparent = T
-)
+cylinder3d(p_start = c(0, 0, 0), orient = c(1, 1, 1), radius = 0.25,
+  length = 1, order = 0, n_seg = 12, axis = F, cylinders = T,
+  circles = F, transparent = T)
 }
 \arguments{
 \item{p_start}{A vector with the start point of the cylinder in 3D (x,y,z)}

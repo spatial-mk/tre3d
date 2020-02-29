@@ -4,14 +4,8 @@
 \alias{display_qsm}
 \title{Visualize 3D QSM model}
 \usage{
-display_qsm(
-  qsm = "cyl_data*.txt",
-  n_seg = 12,
-  axis = FALSE,
-  cylinders = TRUE,
-  circles = FALSE,
-  transparent = TRUE
-)
+display_qsm(qsm = "cyl_data*.txt", n_seg = 12, axis = FALSE,
+  cylinders = TRUE, circles = FALSE, transparent = TRUE)
 }
 \arguments{
 \item{qsm}{qsm A file containing a QSM, e.g. cyl_data_*.txt}

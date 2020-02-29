@@ -4,19 +4,9 @@
 \alias{xyz2cube3d}
 \title{Visualise 3d point as voxel}
 \usage{
-xyz2cube3d(
-  x = 0,
-  y = 0,
-  z = 0,
-  bordered = TRUE,
-  filled = TRUE,
-  lwd = 2,
-  scale = 1,
-  fillcol = "gray",
-  bordercol = "black",
-  alpha = 0.5,
-  ...
-)
+xyz2cube3d(x = 0, y = 0, z = 0, bordered = TRUE, filled = TRUE,
+  lwd = 2, scale = 1, fillcol = "gray", bordercol = "black",
+  alpha = 0.5, ...)
 }
 \arguments{
 \item{x}{x coordinate}

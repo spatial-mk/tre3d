@@ -4,11 +4,8 @@
 \alias{ENL_height_normalized}
 \title{Computes the effective number of layers (ENL) after Ehbrecht et al. 2016}
 \usage{
-ENL_height_normalized(
-  input_cloud = ".xyz",
-  voxel_size = 0.1,
-  slice_thickness = 0.5
-)
+ENL_height_normalized(input_cloud = ".xyz", voxel_size = 0.1,
+  slice_thickness = 0.5)
 }
 \arguments{
 \item{input_cloud}{A 3D point cloud file as full path, e.g. "C:/tree1.xyz".

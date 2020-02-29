@@ -4,10 +4,8 @@
 \alias{get_2d_chull}
 \title{Compute area, perimeter and centroid of an 2d convex hull for a set of points.}
 \usage{
-get_2d_chull(
-  input_cloud = data.frame(x = runif(20), y = runif(20)),
-  plot = FALSE
-)
+get_2d_chull(input_cloud = data.frame(x = runif(20), y = runif(20)),
+  plot = FALSE)
 }
 \arguments{
 \item{input_cloud}{A file or data.frame containing x and y points. If file, it assumes first three columns to be x y z without header. Futher columns are ignored.}
