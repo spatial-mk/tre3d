@@ -4,10 +4,19 @@
 \alias{SSCI}
 \title{SSCI computation after Ehbrecht et al. 2017}
 \usage{
-SSCI(input_fls = "*.fls", align_to_terrain = T, voxel_size = 0.1,
-  slice_thickness = 0.5, angular_resolution = 360/2560,
-  CROP_SOR_xyz = F, crop_square_length = 10, crop_circular = F,
-  crop_circular_radius = 10, save_steps = F, plotting = F)
+SSCI(
+  input_fls = "*.fls",
+  align_to_terrain = T,
+  voxel_size = 0.1,
+  slice_thickness = 0.5,
+  angular_resolution = 360/2560,
+  CROP_SOR_xyz = F,
+  crop_square_length = 10,
+  crop_circular = F,
+  crop_circular_radius = 10,
+  save_steps = F,
+  plotting = F
+)
 }
 \arguments{
 \item{input_fls}{A .fls, .ptx or .xyz file. Note .fls requires a Main file in the same folder as the .fls file.}

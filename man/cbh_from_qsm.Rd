@@ -4,8 +4,12 @@
 \alias{cbh_from_qsm}
 \title{Crown base height (CBH) extraction from a quantitative structure model (QSM).}
 \usage{
-cbh_from_qsm(cyl_data = "cyl_data_*.txt", min_diameter_m = 0.07,
-  max_angle_deg = 60, min_branch_length_m = 2)
+cbh_from_qsm(
+  cyl_data = "cyl_data_*.txt",
+  min_diameter_m = 0.07,
+  max_angle_deg = 60,
+  min_branch_length_m = 2
+)
 }
 \arguments{
 \item{cyl_data}{A file containing a QSM, e.g. cyl_data_*.txt}

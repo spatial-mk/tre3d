@@ -5,5 +5,5 @@
 #' @examples
 #' tre3d_version()
 tre3d_version <- function(){
-  cat(crayon::bold(crayon::blue("\ntre3d version 0.9 'Pretty Pinguin', last updated 29.02.2020\n")))
+  cat(crayon::bold(crayon::blue("\ntre3d version 0.9 'Pretty Pinguin', last updated 06.03.2020\n")))
 }

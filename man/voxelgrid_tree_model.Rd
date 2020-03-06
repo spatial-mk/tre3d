@@ -4,8 +4,13 @@
 \alias{voxelgrid_tree_model}
 \title{Create a voxelgrid tree model including the voxel attributs tree height, segment (crown, stem) and type of occupation (pcd, ashape3d)}
 \usage{
-voxelgrid_tree_model(tree_id = "Dummy", pcd_vox = NA, as3d_vox = NA,
-  alpha_value = 0.5, voxel_size = 0.2)
+voxelgrid_tree_model(
+  tree_id = "Dummy",
+  pcd_vox = NA,
+  as3d_vox = NA,
+  alpha_value = 0.5,
+  voxel_size = 0.2
+)
 }
 \arguments{
 \item{pcd_vox}{Voxelmodel of the tree point cloud (Size of the voxels (see pcd2vox)}

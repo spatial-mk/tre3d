@@ -4,9 +4,16 @@
 \alias{check_qsm_multistem}
 \title{Correction of QSM for multistem trees.}
 \usage{
-check_qsm_multistem(qsm = "cyl_data*.txt", bifurcation_threshold = 1.5,
-  percentage = 40, diameter_treshold = 0.035, min_tree_height = 2,
-  plot_orders = F, plot_parts = F, replace_qsm = F)
+check_qsm_multistem(
+  qsm = "cyl_data*.txt",
+  bifurcation_threshold = 1.5,
+  percentage = 40,
+  diameter_treshold = 0.035,
+  min_tree_height = 2,
+  plot_orders = F,
+  plot_parts = F,
+  replace_qsm = F
+)
 }
 \arguments{
 \item{qsm}{A file containing a QSM, e.g. cyl_data_*.txt}

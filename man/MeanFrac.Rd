@@ -4,8 +4,7 @@
 \alias{MeanFrac}
 \title{Computation of mean fractal dimensions for a point cloud with definded cross section based on angular resolution}
 \usage{
-MeanFrac(input_cloud = df, angular_resolution = 360/2560,
-  plotting = F)
+MeanFrac(input_cloud = df, angular_resolution = 360/2560, plotting = F)
 }
 \arguments{
 \item{angular_resolution}{Angular resolution of the scan, i.e. 360/number of points. Default 360/2560.}
