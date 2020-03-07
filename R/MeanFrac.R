@@ -64,9 +64,12 @@ MeanFrac <- function(input_cloud=df,
                          col = colorRampPalette(c("black", "blue3", "blue","cyan", "darkseagreen" , "green", "yellow", "red", "darkorchid"))(n_section/2),
                          FRAC=NA, area=NA, perimeter=NA, section_id=seq(1:n_section/2))
 
+  ## Create key on a data.table for faster query
+  dt <- data.table::as.data.table(df)
+  data.table::setkey(dt, azimuth_deg)
+
   ## Register a parallel backend and the number of cores to use
   cat(format(Sys.time(),usetz = TRUE),"\n")
-
   nc = parallel::detectCores() # Number of cores
   cl = parallel::makeCluster(nc) # Number of clusters
   doParallel::registerDoParallel(cl) # Register clusters
@@ -74,7 +77,9 @@ MeanFrac <- function(input_cloud=df,
   ## PARELLEL PROCESSING of sections
   result<-foreach::foreach(i = sections$sections) %dopar% {
     ## Get crosssection
-    cs <- dplyr::filter(df, azimuth_deg >= i & azimuth_deg < i+(360/n_section) | azimuth_deg >= i+180 & azimuth_deg < i+(360/n_section)+180)
+    #cs <- dplyr::filter(df, azimuth_deg >= i & azimuth_deg < i+(360/n_section) | azimuth_deg >= i+180 & azimuth_deg < i+(360/n_section)+180)
+    cs <- dt[dt$azimuth_deg >= i & dt$azimuth_deg < i+(360/n_section) | dt$azimuth_deg >= i+180 & dt$azimuth_deg < i+(360/n_section)+180, ]
+    cs <- as.data.frame(cs)
 
     cs$side <- ifelse(cs$azimuth_deg > i & cs$azimuth_deg < i+(360/n_section), 1, 2)
 
@@ -141,6 +146,7 @@ MeanFrac <- function(input_cloud=df,
   cat(format(Sys.time(),usetz = TRUE))
 
   rm(df)
+  rm(dt)
   gc() # Garbage collection
 
   ## Compute MeanFrac
