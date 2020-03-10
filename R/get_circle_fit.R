@@ -79,10 +79,17 @@ get_circle_fit <- function(input_cloud=data.frame(x=runif(20),y=runif(20),z=runi
     cat("\nOnly one component...\n")
     # wie vorher
     component<-read.table(input_temp, sep=" ")
-    fit <- circular::lsfit.circle(component[,1], component[,2])
-    r = fit$coefficients[1]
-    x = fit$coefficients[2]
-    y = fit$coefficients[3]
+
+    ## Algebraic circle fit (used for initial guess in geometric fit)
+    algfit <- conicfit::CircleFitByTaubin(component[,1:2])
+
+    ## Geometric circle fit
+    ## See also: https://people.cas.uab.edu/~mosya/cl/CPPcircle.html
+    geofit <- CircleFitByLandau(component[,1:2], algfit)
+
+    x = geofit[1]
+    y = geofit[2]
+    r = geofit[3]
 
     check_circle_fit$component <- NA
     check_circle_fit$r <- r
@@ -98,10 +105,17 @@ get_circle_fit <- function(input_cloud=data.frame(x=runif(20),y=runif(20),z=runi
     for (i in check_circle_fit$component){
       ## Fit circle for each component
       component <- read.table(i, sep = " ", header = )
-      fit <- circular::lsfit.circle(component[,1], component[,2])
-      r = fit$coefficients[1]
-      x = fit$coefficients[2]
-      y = fit$coefficients[3]
+
+      ## Algebraic circle fit (used for initial guess in geometric fit)
+      algfit <- conicfit::CircleFitByTaubin(component[,1:2])
+
+      ## Geometric circle fit
+      ## See also: https://people.cas.uab.edu/~mosya/cl/CPPcircle.html
+      geofit <- CircleFitByLandau(component[,1:2], algfit)
+
+      x = geofit[1]
+      y = geofit[2]
+      r = geofit[3]
 
       check_circle_fit[check_circle_fit$component==i,]$r <- r
       check_circle_fit[check_circle_fit$component==i,]$x <- x
