@@ -129,6 +129,8 @@ single_tree_analysis <- function(input_cloud=data.frame(x=runif(20),y=runif(20),
 
     if (!is.na(gd_fit$r) & (gd_fit$r > ((d_miny_maxy+d_miny_maxy)/2))==T){
       cat("\nGD likely too big. Use mean values of slice coordinates instead.")
+      print(gd_fit)
+      print((d_miny_maxy+d_miny_maxy)/2)
       gd_fit$x <- pos_x
       gd_fit$y <- pos_y
       gd_fit$r <- sqrt((max_x-min_x)^2 + (max_y-min_y)^2) / 2
