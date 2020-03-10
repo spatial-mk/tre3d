@@ -1,5 +1,5 @@
 #' tre3d version information
-#' @author Matthias Kunz, last updated: 29.02.2020
+#' @author Matthias Kunz, last updated: 09.03.2020
 #' @description Gives information of the tre3d version and changelog
 #' @export
 #' @examples
