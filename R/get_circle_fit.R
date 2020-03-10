@@ -85,7 +85,7 @@ get_circle_fit <- function(input_cloud=data.frame(x=runif(20),y=runif(20),z=runi
 
     ## Geometric circle fit
     ## See also: https://people.cas.uab.edu/~mosya/cl/CPPcircle.html
-    geofit <- CircleFitByLandau(component[,1:2], algfit)
+    geofit <- conicfit::CircleFitByLandau(component[,1:2], algfit)
 
     x = geofit[1]
     y = geofit[2]
@@ -111,7 +111,7 @@ get_circle_fit <- function(input_cloud=data.frame(x=runif(20),y=runif(20),z=runi
 
       ## Geometric circle fit
       ## See also: https://people.cas.uab.edu/~mosya/cl/CPPcircle.html
-      geofit <- CircleFitByLandau(component[,1:2], algfit)
+      geofit <- conicfit::CircleFitByLandau(component[,1:2], algfit)
 
       x = geofit[1]
       y = geofit[2]
