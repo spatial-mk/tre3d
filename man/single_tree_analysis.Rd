@@ -27,7 +27,7 @@ single_tree_analysis(
 
 \item{plot_hulls}{Should the CPA and slice hull be plotted. Default to FALSE.}
 
-\item{overwrite_output}{Should outout files be overwritten?. Logical. Default TRUE.}
+\item{overwrite_output}{Should outout files be overwritten?. Logical. Default FALSE.}
 }
 \value{
 A .txt files containing: CPA, CH, Height, GD, DBH, etc.

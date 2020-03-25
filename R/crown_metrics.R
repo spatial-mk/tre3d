@@ -170,6 +170,7 @@ crown_metrics <- function(input_cloud="*.xyz",
     result_slice[result_slice$lower==ii,]$compactness <- compactness_slice
   }
   #print(result_slice)
+  sinuosity_layer_sum = sinuosity
   sinuosity = sinuosity / cr_length
   compactness = mean(result_slice$compactness, na.rm = T)
   gini <- ineq::ineq(result_slice[result_slice$radius!=0,]$radius, type="Gini") # Compute GINI index
@@ -211,6 +212,7 @@ crown_metrics <- function(input_cloud="*.xyz",
                         cr_length=cr_length,
                         cr_length_to_height=cr_length_to_height,
                         cr_sinuosity=sinuosity,
+                        cr_sinuosity_layer_sum=sinuosity_layer_sum,
                         cr_compactness=compactness,
                         cr_density=cr_density,
                         cr_gini=gini,

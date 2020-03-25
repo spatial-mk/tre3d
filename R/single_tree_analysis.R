@@ -11,7 +11,7 @@
 #' @param vox Should the input point cloud be reduced to voxel grid for faster computation. Default to TRUE.
 #' @param voxel_size Size (in meters) of the voxels when vox==TRUE. Default 0.03
 #' @param alpha_value Alpha value. Default 1.0
-#' @param overwrite_output Should outout files be overwritten?. Logical. Default TRUE.
+#' @param overwrite_output Should outout files be overwritten?. Logical. Default FALSE.
 #' @param plot Should the 2d alpha shape be plotted. Default to FALSE.
 #' @param plot_hulls Should the CPA and slice hull be plotted. Default to FALSE.
 #' @return A .txt files containing: CPA, CH, Height, GD, DBH, etc.
