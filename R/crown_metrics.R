@@ -138,6 +138,7 @@ crown_metrics <- function(input_cloud="*.xyz",
   result_slice <- data.frame(lower=strata, upper=strata + slice_thickness,
                              area=NA, perimeter=NA, radius=NA, compactness=NA)
   sinuosity=0 # set sinuosity to zero
+  sinuosity_std=0 # set standardized sinuosity to zero
   compactness=0 # set compactness to zero
   for (ii in result_slice$lower){
     schicht_centroid <- crown[crown$z >= ii & crown$z < ii + slice_thickness, ]
@@ -161,9 +162,10 @@ crown_metrics <- function(input_cloud="*.xyz",
     }
     slice_dist <- sqrt((pos_x-center$cpa_cen_x)^2 + (pos_y-center$cpa_cen_y)^2) # crown offset in slice
     compactness_slice <- (center$area / (center$perimeter^2)) * 4 * pi # compactness of the slice
-    sinuosity=sinuosity+slice_dist # add distances to sinuosity per slice
-    compactness = compactness + compactness_slice # add compactness of each slice
     r_ii <- sqrt(center$area/pi) ## Compute theoretical cylinder radius in slice (r_ii)
+    sinuosity=sinuosity+slice_dist # add distances to sinuosity per slice
+    sinuosity_std=sinuosity_std+(slice_dist/r_ii)
+    compactness = compactness + compactness_slice # add compactness of each slice
     result_slice[result_slice$lower==ii,]$area <- center$area
     result_slice[result_slice$lower==ii,]$perimeter <- center$perimeter
     result_slice[result_slice$lower==ii,]$radius <- r_ii
@@ -172,6 +174,7 @@ crown_metrics <- function(input_cloud="*.xyz",
   #print(result_slice)
   sinuosity_layer_sum = sinuosity
   sinuosity = sinuosity / cr_length
+  sinuosity_std = sinuosity_std / cr_length
   compactness = mean(result_slice$compactness, na.rm = T)
   gini <- ineq::ineq(result_slice[result_slice$radius!=0,]$radius, type="Gini") # Compute GINI index
 
@@ -213,6 +216,7 @@ crown_metrics <- function(input_cloud="*.xyz",
                         cr_length_to_height=cr_length_to_height,
                         cr_sinuosity=sinuosity,
                         cr_sinuosity_layer_sum=sinuosity_layer_sum,
+                        cr_sinuosity_std=sinuosity_std,
                         cr_compactness=compactness,
                         cr_density=cr_density,
                         cr_gini=gini,
