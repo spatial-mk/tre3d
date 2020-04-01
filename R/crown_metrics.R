@@ -185,6 +185,8 @@ crown_metrics <- function(input_cloud="*.xyz",
     result_slice[result_slice$lower==ii,]$radius <- r_ii
     result_slice[result_slice$lower==ii,]$compactness <- compactness_slice
 
+    cat("\n",ii," -> ", sinuosity_std)
+
   }
 
   sinuosity_layer_sum = sinuosity
