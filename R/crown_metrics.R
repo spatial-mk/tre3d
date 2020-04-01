@@ -161,10 +161,11 @@ crown_metrics <- function(input_cloud="*.xyz",
       center=data.frame(area=0, perimeter=0, cpa_cen_x=pos_x, cpa_cen_y=pos_y)
     }
 
+    slice_dist <- sqrt((pos_x-center$cpa_cen_x)^2 + (pos_y-center$cpa_cen_y)^2) # crown offset in slice
 
     # Ignore center$area = 0 cases
-    if (center$area != 0){
-      slice_dist <- sqrt((pos_x-center$cpa_cen_x)^2 + (pos_y-center$cpa_cen_y)^2) # crown offset in slice
+    if (center$area != 0 & slice_dist != 0){
+      slice_dist = slice_dist
       compactness_slice <- (center$area / (center$perimeter^2)) * 4 * pi # compactness of the slice
       r_ii <- sqrt(center$area/pi) ## Compute theoretical cylinder radius in slice (r_ii)
       sinuosity=sinuosity+slice_dist # add distances to sinuosity per slice
