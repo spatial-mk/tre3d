@@ -13,5 +13,5 @@ Gives information of the tre3d version and changelog
 tre3d_version()
 }
 \author{
-Matthias Kunz, last updated: 09.03.2020
+Matthias Kunz, last updated: 01.04.2020
 }

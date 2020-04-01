@@ -21,7 +21,7 @@
 ##
 ## Script requires the folling R-packages: dplyr, VoxR, ineq, crayon
 ##
-## Author: Matthias Kunz, 31.01.2020
+## Author: Matthias Kunz, 31.03.2020
 ## ****************************************************************************
 
 #' Crown metrics.
