@@ -160,18 +160,32 @@ crown_metrics <- function(input_cloud="*.xyz",
       ## Set area and perimeter to zero if there are less than three points in slice
       center=data.frame(area=0, perimeter=0, cpa_cen_x=pos_x, cpa_cen_y=pos_y)
     }
-    slice_dist <- sqrt((pos_x-center$cpa_cen_x)^2 + (pos_y-center$cpa_cen_y)^2) # crown offset in slice
-    compactness_slice <- (center$area / (center$perimeter^2)) * 4 * pi # compactness of the slice
-    r_ii <- sqrt(center$area/pi) ## Compute theoretical cylinder radius in slice (r_ii)
-    sinuosity=sinuosity+slice_dist # add distances to sinuosity per slice
-    sinuosity_std=sinuosity_std+(slice_dist/r_ii)
-    compactness = compactness + compactness_slice # add compactness of each slice
+
+
+    # Ignore center$area = 0 cases
+    if (center$area != 0){
+      slice_dist <- sqrt((pos_x-center$cpa_cen_x)^2 + (pos_y-center$cpa_cen_y)^2) # crown offset in slice
+      compactness_slice <- (center$area / (center$perimeter^2)) * 4 * pi # compactness of the slice
+      r_ii <- sqrt(center$area/pi) ## Compute theoretical cylinder radius in slice (r_ii)
+      sinuosity=sinuosity+slice_dist # add distances to sinuosity per slice
+      sinuosity_std=sinuosity_std+(slice_dist/r_ii)
+      compactness = compactness + compactness_slice # add compactness of each slice
+    } else {
+      slice_dist <- 0 # crown offset in slice
+      compactness_slice <- NA # compactness of the slice
+      r_ii <- 0 ## Compute theoretical cylinder radius in slice (r_ii)
+      sinuosity=sinuosity # add distances to sinuosity per slice
+      sinuosity_std=sinuosity_std # add distances to sinuosity per slice
+      compactness = compactness # add compactness of each slice
+    }
+
     result_slice[result_slice$lower==ii,]$area <- center$area
     result_slice[result_slice$lower==ii,]$perimeter <- center$perimeter
     result_slice[result_slice$lower==ii,]$radius <- r_ii
     result_slice[result_slice$lower==ii,]$compactness <- compactness_slice
+
   }
-  #print(result_slice)
+
   sinuosity_layer_sum = sinuosity
   sinuosity = sinuosity / cr_length
   sinuosity_std = sinuosity_std / cr_length
